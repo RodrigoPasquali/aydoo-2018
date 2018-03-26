@@ -17,8 +17,10 @@ public class CalculadorFibo {
 		int numero2 = 1;
 		int total = 0;	
 		sucesionFibo.add(numero1);
- 		if(numeroSuceciones > 0){
- 			for(int i = 0; i < numeroSuceciones; i++ ){
+ 		if(numeroSuceciones >= 1){
+ 			numeroSuceciones = numeroSuceciones -1;
+ 			sucesionFibo.add(numero2);
+ 			for(int i = 1; i < numeroSuceciones; i++ ){
 				total = numero1 + numero2;
 				numero1 = numero2;
 				numero2 = total;

@@ -19,5 +19,30 @@ public class TestCalculadorFibo {
 			Assert.assertEquals(valorEsperado, valorObtenido);
 		}
 		
-
+		@Test
+		public void calcularSucesionDeberiaDevolver01(){
+			List<Integer> valorEsperado = new LinkedList<Integer>();
+			List<Integer> valorObtenido = new LinkedList<Integer>();
+			CalculadorFibo calculador = new CalculadorFibo();
+			valorObtenido = calculador.calcularSucecion(1);
+			valorEsperado.add(0);
+			valorEsperado.add(1);
+			
+			Assert.assertEquals(valorEsperado, valorObtenido);
+		}
+		
+		@Test
+		public void calcularSucesionDeberiaDevolver01123(){
+			List<Integer> valorEsperado = new LinkedList<Integer>();
+			List<Integer> valorObtenido = new LinkedList<Integer>();
+			CalculadorFibo calculador = new CalculadorFibo();
+			valorObtenido = calculador.calcularSucecion(5);
+			valorEsperado.add(0);
+			valorEsperado.add(1);
+			valorEsperado.add(1);
+			valorEsperado.add(2);
+			valorEsperado.add(3);
+			
+			Assert.assertEquals(valorEsperado, valorObtenido);
+		}
 }
