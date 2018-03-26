@@ -9,7 +9,7 @@ import org.junit.Test;
 public class TestCalculadorFibo {
 
 		@Test
-		public void calcularSucesionDeberiaDevolver0(){
+		public void calcularSucesionDe0DeberiaDevolver0(){
 			List<Integer> valorEsperado = new LinkedList<Integer>();
 			List<Integer> valorObtenido = new LinkedList<Integer>();
 			CalculadorFibo calculador = new CalculadorFibo();
@@ -20,7 +20,7 @@ public class TestCalculadorFibo {
 		}
 		
 		@Test
-		public void calcularSucesionDeberiaDevolver01(){
+		public void calcularSucesionDe1DeberiaDevolver01(){
 			List<Integer> valorEsperado = new LinkedList<Integer>();
 			List<Integer> valorObtenido = new LinkedList<Integer>();
 			CalculadorFibo calculador = new CalculadorFibo();
@@ -32,7 +32,7 @@ public class TestCalculadorFibo {
 		}
 		
 		@Test
-		public void calcularSucesionDeberiaDevolver01123(){
+		public void calcularSucesionDeDeberiaDevolver01123(){
 			List<Integer> valorEsperado = new LinkedList<Integer>();
 			List<Integer> valorObtenido = new LinkedList<Integer>();
 			CalculadorFibo calculador = new CalculadorFibo();
@@ -45,4 +45,23 @@ public class TestCalculadorFibo {
 			
 			Assert.assertEquals(valorEsperado, valorObtenido);
 		}
+		
+		@Test
+		public void calcularSucesionDe8DeberiaDevolver011235813(){
+			List<Integer> valorEsperado = new LinkedList<Integer>();
+			List<Integer> valorObtenido = new LinkedList<Integer>();
+			CalculadorFibo calculador = new CalculadorFibo();
+			valorObtenido = calculador.calcularSucecion(8);
+			valorEsperado.add(0);
+			valorEsperado.add(1);
+			valorEsperado.add(1);
+			valorEsperado.add(2);
+			valorEsperado.add(3);
+			valorEsperado.add(5);
+			valorEsperado.add(8);
+			valorEsperado.add(13);
+			
+			Assert.assertEquals(valorEsperado, valorObtenido);
+		}
+		
 }
