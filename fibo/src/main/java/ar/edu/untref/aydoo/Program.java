@@ -4,6 +4,6 @@ public class Program {
 	
 	public static final void main(String arg[]) throws Exception {
 		SucesionFibo sucesion = new SucesionFibo();
-		sucesion.generarRespuesta(arg);
+		System.out.println(sucesion.generarRespuesta(arg));
 	}
 }
