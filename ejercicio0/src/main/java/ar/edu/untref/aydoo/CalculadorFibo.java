@@ -12,7 +12,6 @@ public class CalculadorFibo {
 	}
 	
 	public List<Integer> calcularSucecion(int numeroSuceciones){
-		//String respuesta;
 		int numero1 = 0;
 		int numero2 = 1;
 		int total = 0;	
@@ -27,9 +26,6 @@ public class CalculadorFibo {
 				sucesionFibo.add(total);
 			}
 		}
-		//respuesta = String.valueOf(total);
-		System.out.println(sucesionFibo);
 		return sucesionFibo;
-	}
-
+	}	
 }
