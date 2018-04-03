@@ -34,4 +34,13 @@ public class Vaso {
 		return poseeAzucar;
 	}
 
+	public boolean tieneTe() {
+		boolean poseeTe = false;
+		this.sustancia = this.sustancia.toLowerCase();
+		if(this.sustancia == "te"){
+			poseeTe = true;
+		}
+		return poseeTe ;
+	}
+
 }
