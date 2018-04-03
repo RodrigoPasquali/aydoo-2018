@@ -26,4 +26,12 @@ public class Vaso {
 		return poseeCafe;		
 	}
 
+	public boolean tieneAzucar() {
+		boolean poseeAzucar = false;
+		if(this.cantidadDeAzucar > 0 ){
+			poseeAzucar = true;
+		}
+		return poseeAzucar;
+	}
+
 }
