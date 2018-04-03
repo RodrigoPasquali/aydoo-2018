@@ -2,7 +2,8 @@ package ar.edu.untref.aydoo;
 
 public class Vaso {
 	
-	int cantidadDeAzucar;
+	private int cantidadDeAzucar;
+	private String sustancia;
 	
 	public void setCantidadDeAzucar(int cantidad){
 		this.cantidadDeAzucar = cantidad;
@@ -10,6 +11,19 @@ public class Vaso {
 
 	public int getCantidadDeAzucar() {
 		return this.cantidadDeAzucar;
+	}
+
+	public void setSustancia(String unaSustancia) {
+		this.sustancia = unaSustancia;
+	}
+	
+	public boolean tieneCafe() {
+		boolean poseeCafe = false;
+		this.sustancia = this.sustancia.toLowerCase();
+		if(this.sustancia == "cafe"){
+			poseeCafe = true;
+		}
+		return poseeCafe;		
 	}
 
 }

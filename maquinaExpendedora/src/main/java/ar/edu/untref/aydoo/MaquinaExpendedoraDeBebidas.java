@@ -4,6 +4,7 @@ public class MaquinaExpendedoraDeBebidas {
 	
 	void hacerCafeConLecheConNDeAzucar(Vaso unVaso, int cantidadAzucar) {
 		unVaso.setCantidadDeAzucar(cantidadAzucar);
+		unVaso.setSustancia("cafe");
 	}
 
 }
