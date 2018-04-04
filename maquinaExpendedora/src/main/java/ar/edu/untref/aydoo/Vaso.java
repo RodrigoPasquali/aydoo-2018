@@ -4,6 +4,7 @@ public class Vaso {
 	
 	private int cantidadDeAzucar;
 	private String sustancia;
+	private boolean leche;
 	
 	public void setCantidadDeAzucar(int cantidad){
 		this.cantidadDeAzucar = cantidad;
@@ -15,6 +16,10 @@ public class Vaso {
 
 	public void setSustancia(String unaSustancia) {
 		this.sustancia = unaSustancia;
+	}
+	
+	public void setLeche() {
+		this.leche = true;
 	}
 	
 	public boolean tieneCafe() {
