@@ -13,5 +13,14 @@ public class TestCasillero {
 		
 		Assert.assertTrue(casillero.estaVacio());
 	}
+	
+	@Test
+	public void casilleroConBarcoNoEstaVacio() {
+		Casillero casillero = new Casillero();
+		Barco barco = new Barco(23);
+		casillero.ponerBarco(barco);
+		
+		Assert.assertFalse(casillero.estaVacio());
+	}
 
 }
