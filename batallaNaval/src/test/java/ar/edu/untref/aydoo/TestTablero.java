@@ -43,4 +43,18 @@ public class TestTablero {
 		Assert.assertTrue(tablero.hayBarcoEnPosicion(columna, fila));
 		Assert.assertTrue(tablero.hayBarcoEnPosicion(columna, fila++));
 	}
+	
+	@Test
+	public void deberiaHaberBarcoDe2PosicionesConOrientacionHorizontal() {
+		int tamanioBarco = 2;
+		int columna = 1;
+		int fila = 4;
+		Orientacion orientacion = Orientacion.HORIZONTAL;
+		Barco barco = new Barco(tamanioBarco);
+		Tablero tablero = new Tablero();
+		tablero.ubicarBarco(barco, columna, fila, orientacion);
+		
+		Assert.assertTrue(tablero.hayBarcoEnPosicion(columna, fila));
+		Assert.assertTrue(tablero.hayBarcoEnPosicion(columna++, fila));
+	}
 }
