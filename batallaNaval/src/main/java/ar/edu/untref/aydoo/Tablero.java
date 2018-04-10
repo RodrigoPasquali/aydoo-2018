@@ -54,11 +54,12 @@ public class Tablero {
 	
 	private void verificarLimitesTablero(int columna, int fila) throws Exception {
 		if(fila > this.filas || columna > this.columnas) {
-			throw new Exception("Debe ubicar el barco dentro de los limites permitidos por el tablero");
+			throw new Exception("Debe seleccionar una posicion dentro de los limites del tablero");
 		}
 	}
 
 	public EstadoCasillero disparar(int columna, int fila) throws Exception {
+		verificarLimitesTablero(columna, fila);
 		return this.casilleros[columna][fila].obtenerEstado();
 	}
 }

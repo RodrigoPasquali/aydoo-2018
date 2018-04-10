@@ -164,4 +164,16 @@ public class TestTablero {
 		Assert.assertEquals(valorEsperado, tablero.disparar(columna, fila));	
 	}
 
+	@Test
+	public void dispararFueraDelTableroDeberiaDevolverUnaExpecion() throws Exception {
+		Tablero tablero = new Tablero();
+		int columna = 6;
+		int fila = 1;
+		
+		try {
+			tablero.disparar(columna, fila);
+		}catch(Exception e){
+			
+		}
+	}
 }
