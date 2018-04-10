@@ -3,8 +3,6 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
-
-
 public class TestTablero {
 
 	@Test
@@ -72,7 +70,23 @@ public class TestTablero {
 		tablero.ubicarBarco(crucero, columna, fila, orientacion);
 		
 		try {
-			tablero.ubicarBarco(bote, columna, fila++, orientacion);
+			tablero.ubicarBarco(bote, columna, fila++, null);
+		}catch (Exception e){
+			
+		}
+	}
+	
+	
+	@Test
+	public void tratarDeUbicarUnBarcoFueraDeLosLimitesNoDeberiaSerPosible() {
+		int tamaniBote = 1;
+		int columna = 6;
+		int fila = 1;
+		Tablero tablero = new Tablero();
+		Barco bote = new Barco(tamaniBote);
+		
+		try {
+			tablero.ubicarBarco(bote, columna, fila++, null);
 		}catch (Exception e){
 			
 		}
