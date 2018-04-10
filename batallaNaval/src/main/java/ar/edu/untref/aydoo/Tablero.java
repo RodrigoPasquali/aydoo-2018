@@ -32,17 +32,25 @@ public class Tablero {
 		return !this.casilleros[columna][fila].estaVacio();
 	}
 
-	public void ubicarBarco(Barco barco, int columna, int fila, Orientacion orientacion) {
-		this.casilleros[columna][fila].ponerBarco(barco);
-		if(barco.obtenerTamanio() < 1) {
-			if (orientacion.equals(Orientacion.VERTICAL)) {
-				this.casilleros[columna][fila++].ponerBarco(barco);
-			}else if(orientacion.equals(Orientacion.HORIZONTAL)){
-				this.casilleros[columna++][fila].ponerBarco(barco);
+	public void ubicarBarco(Barco barco, int columna, int fila, Orientacion orientacion) throws Exception {
+		if(this.hayBarcoEnPosicion(columna, fila)) {
+			throw new Exception("No se puede colocar barco en esta posicion");
+		}else{
+			this.verificarLimitesTablero(columna, fila);
+			this.casilleros[columna][fila].ponerBarco(barco);
+			if(barco.obtenerTamanio() < 1) {
+				if (orientacion.equals(Orientacion.VERTICAL)) {
+					this.casilleros[columna][fila++].ponerBarco(barco);
+				}else if(orientacion.equals(Orientacion.HORIZONTAL)){
+					this.casilleros[columna++][fila].ponerBarco(barco);
+				}
 			}
 		}
 	}
 	
-	
-
+	private void verificarLimitesTablero(int columna, int fila) throws Exception {
+		if(fila > this.filas || columna > this.columnas) {
+			throw new Exception("Debe ubicar el barco dentro de los limites permitidos por el tablero");
+		}
+	}
 }

@@ -17,7 +17,7 @@ public class Barco {
 	public void tocado() {
 		if(this.tamanio > this.parteDaniada) {
 			this.parteDaniada++;
-		}		
+		} 		
 	}
 
 	public boolean estaHundido() {

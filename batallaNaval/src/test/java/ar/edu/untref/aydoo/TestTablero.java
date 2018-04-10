@@ -19,7 +19,7 @@ public class TestTablero {
 	}
  
 	@Test
-	public void deberiaHaberUnBArcoEnElCasillero23(){
+	public void deberiaHaberUnBArcoEnElCasillero23() throws Exception{
 		int tamanioBarco = 1;
 		int columna = 2;
 		int fila = 3;
@@ -31,30 +31,50 @@ public class TestTablero {
 	}
 	
 	@Test
-	public void deberiaHaberBarcoDe2PosicionesConOrientacionVertical() {
+	public void deberiaHaberBarcoDe2PosicionesConOrientacionVertical() throws Exception {
 		int tamanioBarco = 2;
 		int columna = 1;
 		int fila = 4;
 		Orientacion orientacion = Orientacion.VERTICAL;
-		Barco barco = new Barco(tamanioBarco);
+		Barco crucero = new Barco(tamanioBarco);
 		Tablero tablero = new Tablero();
-		tablero.ubicarBarco(barco, columna, fila, orientacion);
+		tablero.ubicarBarco(crucero, columna, fila, orientacion);
 		
 		Assert.assertTrue(tablero.hayBarcoEnPosicion(columna, fila));
 		Assert.assertTrue(tablero.hayBarcoEnPosicion(columna, fila++));
 	}
 	
 	@Test
-	public void deberiaHaberBarcoDe2PosicionesConOrientacionHorizontal() {
+	public void deberiaHaberBarcoDe2PosicionesConOrientacionHorizontal() throws Exception {
 		int tamanioBarco = 2;
 		int columna = 1;
 		int fila = 4;
 		Orientacion orientacion = Orientacion.HORIZONTAL;
-		Barco barco = new Barco(tamanioBarco);
+		Barco crucero = new Barco(tamanioBarco);
 		Tablero tablero = new Tablero();
-		tablero.ubicarBarco(barco, columna, fila, orientacion);
+		tablero.ubicarBarco(crucero, columna, fila, orientacion);
 		
 		Assert.assertTrue(tablero.hayBarcoEnPosicion(columna, fila));
 		Assert.assertTrue(tablero.hayBarcoEnPosicion(columna++, fila));
+	}
+	
+	@Test
+	public void tratarDePonerUnBarcoEnUnaPosicionDondeHayOtroBarcoNoDeberiaSerPosible() throws Exception {
+		int tamaniBote = 1;
+		int columna = 1;
+		int fila = 2;
+		int tamanioCrucero = 2;
+		Tablero tablero = new Tablero();
+		Orientacion orientacion = Orientacion.VERTICAL;
+		Barco bote = new Barco(tamaniBote);
+		Barco crucero = new Barco(tamanioCrucero);
+		
+		tablero.ubicarBarco(crucero, columna, fila, orientacion);
+		
+		try {
+			tablero.ubicarBarco(bote, columna, fila++, orientacion);
+		}catch (Exception e){
+			
+		}
 	}
 }
