@@ -25,8 +25,22 @@ public class TestTablero {
 		int fila = 3;
 		Barco barco = new Barco(tamanioBarco);
 		Tablero tablero = new Tablero();
-		tablero.ubicarBarco(barco, columna, fila);
+		tablero.ubicarBarco(barco, columna, fila, null);
 
 		Assert.assertTrue(tablero.hayBarcoEnPosicion(2, 3));;
+	}
+	
+	@Test
+	public void deberiaHaberBarcoDe2PosicionesConOrientacionVertical() {
+		int tamanioBarco = 2;
+		int columna = 1;
+		int fila = 4;
+		Orientacion orientacion = Orientacion.VERTICAL;
+		Barco barco = new Barco(tamanioBarco);
+		Tablero tablero = new Tablero();
+		tablero.ubicarBarco(barco, columna, fila, orientacion);
+		
+		Assert.assertTrue(tablero.hayBarcoEnPosicion(columna, fila));
+		Assert.assertTrue(tablero.hayBarcoEnPosicion(columna, fila++));
 	}
 }

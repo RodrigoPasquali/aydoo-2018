@@ -32,8 +32,15 @@ public class Tablero {
 		return !this.casilleros[columna][fila].estaVacio();
 	}
 
-	public void ubicarBarco(Barco barco, int columna, int fila) {
+	public void ubicarBarco(Barco barco, int columna, int fila, Orientacion orientacion) {
 		this.casilleros[columna][fila].ponerBarco(barco);
+		if(barco.obtenerTamanio() < 1) {
+			if (orientacion.equals(Orientacion.VERTICAL)) {
+				this.casilleros[columna][fila++].ponerBarco(barco);
+			}else if(orientacion.equals(Orientacion.HORIZONTAL)){
+				this.casilleros[columna++][fila].ponerBarco(barco);
+			}
+		}
 	}
 	
 	
