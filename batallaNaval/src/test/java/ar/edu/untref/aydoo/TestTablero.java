@@ -123,9 +123,10 @@ public class TestTablero {
 		Tablero tablero = new Tablero();
 		int columna = 4;
 		int fila = 4;
-		int tamanioBarco = 1;
+		int tamanioBarco = 2;
+		Orientacion orientacion = Orientacion.HORIZONTAL;
 		Barco bote = new Barco(tamanioBarco);
-		tablero.ubicarBarco(bote, columna, fila, null);
+		tablero.ubicarBarco(bote, columna, fila, orientacion);
 		EstadoCasillero valorEsperado = EstadoCasillero.TOCADO;
 		
 		Assert.assertEquals(valorEsperado, tablero.disparar(columna, fila));
@@ -136,9 +137,10 @@ public class TestTablero {
 		Tablero tablero = new Tablero();
 		int columna = 4;
 		int fila = 4;
-		int tamanioBarco = 1;
+		int tamanioBarco = 2;
+		Orientacion orientacion = Orientacion.HORIZONTAL;
 		Barco bote = new Barco(tamanioBarco);
-		tablero.ubicarBarco(bote, columna, fila, null);
+		tablero.ubicarBarco(bote, columna, fila, orientacion);
 		tablero.disparar(columna, fila);
 		
 		try {
@@ -147,6 +149,19 @@ public class TestTablero {
 			
 		}
 		
-		}
+	}
+
+	@Test
+	public void dispararDeberiaDevolverQueSeHundioUnBarco() throws Exception{
+		Tablero tablero = new Tablero();
+		int columna = 4;
+		int fila = 4;
+		int tamanioBarco = 1;
+		Barco bote = new Barco(tamanioBarco);
+		tablero.ubicarBarco(bote, columna, fila, null);
+		EstadoCasillero valorEsperado = EstadoCasillero.HUNDIDO;
+		
+		Assert.assertEquals(valorEsperado, tablero.disparar(columna, fila));	
+	}
 
 }

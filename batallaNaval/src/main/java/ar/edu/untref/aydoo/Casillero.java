@@ -34,7 +34,11 @@ public class Casillero {
 				throw new Exception("El barco ya fue tocado");
 			}else{
 				this.barco.tocado();
-				this.estado = EstadoCasillero.TOCADO;
+				if(this.barco.estaHundido()) {
+					this.estado = EstadoCasillero.HUNDIDO;
+				}else{
+					this.estado = EstadoCasillero.TOCADO;
+				}
 			}
 		}
 		return this.estado;
