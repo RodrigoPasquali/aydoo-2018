@@ -38,7 +38,7 @@ public class TestBarco {
 		
 		Assert.assertTrue(barco.estaHundido());
 	}
-	
+/*	
 	@Test
 	public void siSeTocaBarcoHundidoArrojaMensjeQueEstaHundido() {
 		Barco barco = new Barco(1);
@@ -47,5 +47,5 @@ public class TestBarco {
 		
 		Assert.assertEquals(valorEsperado, barco.tocado());
 	}
-
+*/
 }

@@ -58,7 +58,7 @@ public class Tablero {
 		}
 	}
 
-	public EstadoCasillero disparar(int columna, int fila) {
+	public EstadoCasillero disparar(int columna, int fila) throws Exception {
 		return this.casilleros[columna][fila].obtenerEstado();
 	}
 }

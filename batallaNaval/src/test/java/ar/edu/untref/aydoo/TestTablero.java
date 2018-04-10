@@ -109,11 +109,24 @@ public class TestTablero {
 	}
 	
 	@Test
-	public void dispararDeberiaDevolverAgua() {
+	public void dispararDeberiaDevolverAgua() throws Exception {
 		Tablero tablero = new Tablero();
 		int columna = 4;
 		int fila = 4;
 		EstadoCasillero valorEsperado = EstadoCasillero.AGUA;
+		
+		Assert.assertEquals(valorEsperado, tablero.disparar(columna, fila));
+	}
+	
+	@Test
+	public void dispararDeberiaDevolverQueUnBarcoEstaTocado() throws Exception{
+		Tablero tablero = new Tablero();
+		int columna = 4;
+		int fila = 4;
+		int tamanioBarco = 1;
+		Barco bote = new Barco(tamanioBarco);
+		tablero.ubicarBarco(bote, columna, fila, null);
+		EstadoCasillero valorEsperado = EstadoCasillero.TOCADO;
 		
 		Assert.assertEquals(valorEsperado, tablero.disparar(columna, fila));
 	}

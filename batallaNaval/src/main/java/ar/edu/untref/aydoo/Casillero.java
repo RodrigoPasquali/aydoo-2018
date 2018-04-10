@@ -26,11 +26,14 @@ public class Casillero {
 		this.estado = estadoNuevo;
 	}
 
-	public EstadoCasillero obtenerEstado() {
+	public EstadoCasillero obtenerEstado() throws Exception {
 		if(this.barco != null) {
 			if(this.barco.estaHundido()) {
 				this.estado = EstadoCasillero.HUNDIDO;
 			}else if(this.barco.estaTocado()) {
+				throw new Exception("El barco ya fue tocado");
+			}else{
+				this.barco.tocado();
 				this.estado = EstadoCasillero.TOCADO;
 			}
 		}
