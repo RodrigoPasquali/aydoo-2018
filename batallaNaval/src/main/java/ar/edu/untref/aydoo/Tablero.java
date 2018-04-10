@@ -1,10 +1,5 @@
 package ar.edu.untref.aydoo;
 
-
-/*
- * FALTA INICIALIZAR CADA CASILLERO, RECORRIENDO LA MATRIZ Y HACIENDO NEW*/
-
-
 public class Tablero {
 
 	private final int columnas = 5;

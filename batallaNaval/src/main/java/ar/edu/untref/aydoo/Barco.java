@@ -14,10 +14,15 @@ public class Barco {
 		return this.tamanio;
 	}
 
-	public void tocado() {
+	public String tocado() {
+		String mensaje;
 		if(this.tamanio > this.parteDaniada) {
 			this.parteDaniada++;
-		} 		
+			mensaje = "¡El barco ha sido dañado!";
+		}else{
+			mensaje = "El barco esta hundido";
+		}
+		return mensaje;
 	}
 
 	public boolean estaHundido() {

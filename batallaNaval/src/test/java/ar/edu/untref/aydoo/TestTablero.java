@@ -78,7 +78,7 @@ public class TestTablero {
 	
 	
 	@Test
-	public void tratarDeUbicarUnBarcoFueraDeLosLimitesNoDeberiaSerPosible() {
+	public void tratarDeUbicarUnBarcoDe1PosicionFueraDeLosLimitesNoDeberiaSerPosible() {
 		int tamaniBote = 1;
 		int columna = 6;
 		int fila = 1;
@@ -86,7 +86,23 @@ public class TestTablero {
 		Barco bote = new Barco(tamaniBote);
 		
 		try {
-			tablero.ubicarBarco(bote, columna, fila++, null);
+			tablero.ubicarBarco(bote, columna, fila, null);
+		}catch (Exception e){
+			
+		}
+	}
+	
+	@Test
+	public void tratarDeUbicarUnBarcoDe2PosicionFueraDeLosLimitesNoDeberiaSerPosible() {
+		int tamaniBote = 2;
+		int columna = 5;
+		int fila = 1;
+		Tablero tablero = new Tablero();
+		Barco bote = new Barco(tamaniBote);
+		Orientacion orientacion = Orientacion.HORIZONTAL;
+		
+		try {
+			tablero.ubicarBarco(bote, columna, fila, orientacion);
 		}catch (Exception e){
 			
 		}

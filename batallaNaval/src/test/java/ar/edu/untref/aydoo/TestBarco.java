@@ -38,5 +38,14 @@ public class TestBarco {
 		
 		Assert.assertTrue(barco.estaHundido());
 	}
+	
+	@Test
+	public void siSeTocaBarcoHundidoArrojaMensjeQueEstaHundido() {
+		Barco barco = new Barco(1);
+		barco.tocado();
+		String valorEsperado = "El barco esta hundido";
+		
+		Assert.assertEquals(valorEsperado, barco.tocado());
+	}
 
 }
