@@ -33,18 +33,27 @@ public class Tablero {
 	}
 
 	public void ubicarBarco(Barco barco, int columna, int fila, Orientacion orientacion) throws Exception {
-		if(this.hayBarcoEnPosicion(columna, fila)) {
-			throw new Exception("No se puede colocar barco en esta posicion");
-		}else{
-			this.verificarLimitesTablero(columna, fila);
-			this.casilleros[columna][fila].ponerBarco(barco);
-			if(barco.obtenerTamanio() < 1) {
-				if (orientacion.equals(Orientacion.VERTICAL)) {
-					this.casilleros[columna][fila++].ponerBarco(barco);
-				}else if(orientacion.equals(Orientacion.HORIZONTAL)){
-					this.casilleros[columna++][fila].ponerBarco(barco);
+		this.verificarLimitesTablero(columna, fila);
+		this.verificarPosicion(columna, fila, orientacion);
+		this.casilleros[columna][fila].ponerBarco(barco);
+		if(barco.obtenerTamanio() < 1) {
+			if (orientacion.equals(Orientacion.VERTICAL)) {
+				fila++;
+				this.verificarLimitesTablero(columna, fila);
+				this.verificarPosicion(columna, fila, orientacion);
+				this.casilleros[columna][fila].ponerBarco(barco);
+			}else if(orientacion.equals(Orientacion.HORIZONTAL)){
+				columna++;
+				this.verificarLimitesTablero(columna,fila);
+				this.verificarPosicion(columna, fila, orientacion);
+				this.casilleros[columna][fila].ponerBarco(barco);
 				}
 			}
+	}
+	
+	private void verificarPosicion(int columna, int fila, Orientacion orientacion) throws Exception {
+		if(this.hayBarcoEnPosicion(columna, fila)) {
+			throw new Exception("No se puede colocar barco en esta posicion");
 		}
 	}
 	
