@@ -22,10 +22,6 @@ public class Casillero {
 		return this.barco;
 	}
 	
-	public void cambiarEstado(EstadoCasillero estadoNuevo) {
-		this.estado = estadoNuevo;
-	}
-
 	public EstadoCasillero obtenerEstado() throws Exception {
 		if(this.barco != null) {
 			if(this.barco.estaHundido()) {

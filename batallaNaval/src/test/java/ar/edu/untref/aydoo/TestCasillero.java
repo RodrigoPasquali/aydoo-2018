@@ -15,7 +15,7 @@ public class TestCasillero {
 	@Test
 	public void casilleroConBarcoNoEstaVacio() throws Exception {
 		Casillero casillero = new Casillero();
-		Barco barco = new Barco(23);
+		Barco barco = new Barco(2);
 		casillero.ponerBarco(barco);
 		
 		Assert.assertFalse(casillero.estaVacio());
