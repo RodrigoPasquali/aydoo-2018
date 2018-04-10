@@ -29,7 +29,7 @@ public class Tablero {
 	}
 
 	public boolean hayBarcoEnPosicion(int columna, int fila) {
-		return this.casilleros[columna][fila].hayBarco();
+		return !this.casilleros[columna][fila].estaVacio();
 	}
 
 	public void ubicarBarco(Barco barco, int columna, int fila) {
