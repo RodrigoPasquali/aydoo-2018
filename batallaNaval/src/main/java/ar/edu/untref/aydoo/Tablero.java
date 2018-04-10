@@ -45,7 +45,7 @@ public class Tablero {
 				}
 			}
 	}
-	
+	 
 	private void verificarPosicion(int columna, int fila, Orientacion orientacion) throws Exception {
 		if(this.hayBarcoEnPosicion(columna, fila)) {
 			throw new Exception("No se puede colocar barco en esta posicion");
@@ -56,5 +56,9 @@ public class Tablero {
 		if(fila > this.filas || columna > this.columnas) {
 			throw new Exception("Debe ubicar el barco dentro de los limites permitidos por el tablero");
 		}
+	}
+
+	public EstadoCasillero disparar(int columna, int fila) {
+		return this.casilleros[columna][fila].obtenerEstado();
 	}
 }

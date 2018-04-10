@@ -107,5 +107,15 @@ public class TestTablero {
 			
 		}
 	}
+	
+	@Test
+	public void dispararDeberiaDevolverAgua() {
+		Tablero tablero = new Tablero();
+		int columna = 4;
+		int fila = 4;
+		EstadoCasillero valorEsperado = EstadoCasillero.AGUA;
+		
+		Assert.assertEquals(valorEsperado, tablero.disparar(columna, fila));
+	}
 
 }

@@ -24,6 +24,14 @@ public class Barco {
 		}
 		return mensaje;
 	}
+	
+	public boolean estaTocado() {
+		boolean tocado = false;
+		if((this.tamanio > this.parteDaniada) && (this.parteDaniada > 0)) {
+			tocado = true;
+		}
+		return tocado;
+	}
 
 	public boolean estaHundido() {
 		return this.parteDaniada == this.tamanio;
