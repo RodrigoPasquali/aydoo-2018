@@ -78,7 +78,7 @@ public class TestTablero {
 	
 	
 	@Test
-	public void tratarDeUbicarUnBarcoDe1PosicionFueraDeLosLimitesNoDeberiaSerPosible() {
+	public void tratarDeUbicarUnBarcoDe1PosicionFueraDeLosLimitesNoDeberiaSerPosible() throws Exception {
 		int tamaniBote = 1;
 		int columna = 6;
 		int fila = 1;
@@ -93,7 +93,7 @@ public class TestTablero {
 	}
 	
 	@Test
-	public void tratarDeUbicarUnBarcoDe2PosicionFueraDeLosLimitesNoDeberiaSerPosible() {
+	public void tratarDeUbicarUnBarcoDe2PosicionFueraDeLosLimitesNoDeberiaSerPosible() throws Exception {
 		int tamaniBote = 2;
 		int columna = 5;
 		int fila = 1;

@@ -13,7 +13,7 @@ public class TestCasillero {
 	}
 	
 	@Test
-	public void casilleroConBarcoNoEstaVacio() {
+	public void casilleroConBarcoNoEstaVacio() throws Exception {
 		Casillero casillero = new Casillero();
 		Barco barco = new Barco(23);
 		casillero.ponerBarco(barco);

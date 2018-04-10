@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TestBarco {
 	
 	@Test
-	public void barcoDeberiaTenerTamanioAsignadoEnConstructor() {
+	public void barcoDeberiaTenerTamanioAsignadoEnConstructor() throws Exception {
 		int tamanio = 3;
 		Barco barco = new Barco(tamanio);
 		
@@ -15,7 +15,7 @@ public class TestBarco {
 	}
 	
 	@Test
-	public void alTocarBarcoDeTamanio1DeberiaEstarHundido() {
+	public void alTocarBarcoDeTamanio1DeberiaEstarHundido() throws Exception {
 		Barco barco = new Barco(1);
 		barco.tocado();
 		
@@ -23,29 +23,24 @@ public class TestBarco {
 	}
 	
 	@Test
-	public void barcoDeTamanioDosNoEstaHundidoSiSeLoTocaUnaVez() {
+	public void barcoDeTamanioDosNoEstaHundidoSiSeLoTocaUnaVez() throws Exception {
 		Barco barco = new Barco(2);
 		barco.tocado();
 		
 		Assert.assertFalse(barco.estaHundido());
 	}
 	
+
 	@Test
-	public void barcoDeberiaPoderTocarseMasVecesDeLasDeSuTamanioSinCambiarEstado() {
+	public void siSeTocaBarcoHundidoArrojaMensajeQueEstaHundido() throws Exception {
 		Barco barco = new Barco(1);
 		barco.tocado();
-		barco.tocado();
 		
-		Assert.assertTrue(barco.estaHundido());
+		try {
+			barco.tocado();
+		}catch (Exception e){
+			
+		}
 	}
-/*	
-	@Test
-	public void siSeTocaBarcoHundidoArrojaMensjeQueEstaHundido() {
-		Barco barco = new Barco(1);
-		barco.tocado();
-		String valorEsperado = "El barco esta hundido";
-		
-		Assert.assertEquals(valorEsperado, barco.tocado());
-	}
-*/
+
 }
