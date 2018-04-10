@@ -130,5 +130,23 @@ public class TestTablero {
 		
 		Assert.assertEquals(valorEsperado, tablero.disparar(columna, fila));
 	}
+	
+	@Test
+	public void dispararDeberiaDevolverQueEnEsaPosicionNoSePuedeDisparar() throws Exception{
+		Tablero tablero = new Tablero();
+		int columna = 4;
+		int fila = 4;
+		int tamanioBarco = 1;
+		Barco bote = new Barco(tamanioBarco);
+		tablero.ubicarBarco(bote, columna, fila, null);
+		tablero.disparar(columna, fila);
+		
+		try {
+			tablero.disparar(columna, fila);
+		}catch (Exception e){
+			
+		}
+		
+		}
 
 }
