@@ -33,10 +33,10 @@ public class TestEntrada {
 	public void getOrientacionDeberiaDevolverHCuandoSeIngresaHD() throws Exception {
 		String[] cadena = {"-o=hd" , "5"};
 		Entrada entrada = new Entrada(cadena);
-		char valorEsperado = 'h';
+		String valorEsperado = "h";
 		entrada.procesarParametros();
 		
-		char valorObtenido = entrada.getOrientacion();
+		String valorObtenido = entrada.getOrientacion();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
@@ -45,10 +45,10 @@ public class TestEntrada {
 	public void getDirecionDeberiaDevolverDCuandoSeIngresaHD() throws Exception {
 		String[] cadena = {"-o=hd" , "34"};
 		Entrada entrada = new Entrada(cadena);
-		char valorEsperado = 'd';
+		String valorEsperado = "d";
 		entrada.procesarParametros();
 		
-		char valorObtenido = entrada.getDireccion();
+		String valorObtenido = entrada.getDireccion();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
@@ -57,12 +57,12 @@ public class TestEntrada {
 	public void getOrientacionYDireccionDeberiaDevolverHDCuandoNoSeIngresaFormato() throws Exception {
 		String[] cadena = {"44"};
 		Entrada entrada = new Entrada(cadena);
-		char valorEsperadoD = 'd';
-		char valorEsperadoO = 'h';
+		String valorEsperadoD = "d";
+		String valorEsperadoO = "h";
 		entrada.procesarParametros();
 		
-		char valorObtenidoD = entrada.getDireccion();
-		char valorObtenidoO = entrada.getOrientacion();
+		String valorObtenidoD = entrada.getDireccion();
+		String valorObtenidoO = entrada.getOrientacion();
 		
 		Assert.assertEquals(valorEsperadoD, valorObtenidoD);
 		Assert.assertEquals(valorEsperadoO, valorObtenidoO);

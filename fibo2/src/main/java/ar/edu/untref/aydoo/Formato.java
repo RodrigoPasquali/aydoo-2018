@@ -9,9 +9,9 @@ public class Formato {
 	private String orientacion;
 	private String direccion;
 		
-	public Formato(String orientacionSeleccionada, String direccionSeleccionada) {
-		this.orientacion = orientacionSeleccionada;
-		this.direccion = direccionSeleccionada;
+	public Formato(String orientacionIngresada, String direccionIngresada) {
+		this.orientacion = orientacionIngresada;
+		this.direccion = direccionIngresada;
 	}
 
 	public void aplicarFormato(List<Integer> listaNumeros){

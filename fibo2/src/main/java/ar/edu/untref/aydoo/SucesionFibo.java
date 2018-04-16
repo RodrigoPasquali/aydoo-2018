@@ -9,7 +9,6 @@ public class SucesionFibo {
 	
 	public SucesionFibo(String[] arg){
 		this.entrada = new Entrada(arg);
-		this.formateador = new Formato("", "");
 		this.calculador = new CalculadorFibo();
 	}
 
@@ -17,6 +16,7 @@ public class SucesionFibo {
 		this.entrada.procesarParametros();
 		int cantidadSucesiones = this.entrada.getNumero();
 		List<Integer> listaNumeros = this.calculador.calcularSucecion(cantidadSucesiones);
+		this.formateador = new Formato(entrada.getOrientacion(), entrada.getDireccion());
 		this.formateador.aplicarFormato(listaNumeros);
 		String cadenaObtenida = this.formateador.getSucesion();
 		return cadenaObtenida;	
