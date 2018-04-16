@@ -40,4 +40,18 @@ public class TestEntrada {
 		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
+	
+	@Test
+	public void getDirecionDeberiaDevolverDCuandoSeIngresaHD() throws Exception {
+		String[] cadena = {"-o=hd" , "34"};
+		Entrada entrada = new Entrada(cadena);
+		char valorEsperado = 'd';
+		entrada.procesarParametros();
+		
+		char valorObtenido = entrada.getDireccion();
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+
 }
