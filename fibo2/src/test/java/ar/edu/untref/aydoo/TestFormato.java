@@ -141,4 +141,35 @@ public class TestFormato {
 		
 		Assert.assertEquals(valorEsprado, valorObtenido);
 	}
+	
+	@Test
+	public void formatoDeberiaDevolverFormatoIndirectoYVerticalCuandoArgumentosSonVI() {
+		String posicion = "v";
+		String direccion = "i";
+		Formato formateador = new Formato(posicion, direccion);
+		List<Integer> listaNumeros = new LinkedList<Integer>();
+		listaNumeros.add(0 , 0);
+		listaNumeros.add(1 , 1);
+		listaNumeros.add(2 , 1);
+		listaNumeros.add(3 , 2);
+		listaNumeros.add(4 , 3);
+		listaNumeros.add(5 , 5);
+		listaNumeros.add(6 , 8);
+		listaNumeros.add(7 , 13);
+		
+		formateador.aplicarFormato(listaNumeros);
+		
+		String valorObtenido = formateador.getSucesion();
+		String valorEsprado = "fibo<8>: " + "\r\n"
+				+ "13" + "\r\n"
+				+ "8" + "\r\n"
+				+ "5" + "\r\n"
+				+ "3" + "\r\n"
+				+ "2" + "\r\n"
+				+ "1" + "\r\n"
+				+ "1" + "\r\n"
+				+ "0";
+		
+		Assert.assertEquals(valorEsprado, valorObtenido);
+	}
 }
