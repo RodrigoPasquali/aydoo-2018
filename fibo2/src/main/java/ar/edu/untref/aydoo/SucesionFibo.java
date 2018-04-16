@@ -7,14 +7,14 @@ public class SucesionFibo {
 	private Formato formateador ;
 	private CalculadorFibo calculador;
 	
-	public SucesionFibo(){
-		this.entrada = new Entrada();
+	public SucesionFibo(String[] arg){
+		this.entrada = new Entrada(arg);
 		this.formateador = new Formato("", "");
 		this.calculador = new CalculadorFibo();
 	}
 
-	public String generarRespuesta(String[] arg) throws Exception{
-		int cantidadSucesiones = this.entrada.getNumero(arg);
+	public String generarRespuesta() throws Exception{
+		int cantidadSucesiones = this.entrada.getNumero();
 		List<Integer> listaNumeros = this.calculador.calcularSucecion(cantidadSucesiones);
 		this.formateador.aplicarFormato(listaNumeros);
 		String cadenaObtenida = this.formateador.getSucesion();
