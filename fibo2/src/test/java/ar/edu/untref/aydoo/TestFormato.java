@@ -10,7 +10,7 @@ public class TestFormato {
 	
 	@Test
 	public void formatoDeberiaDevolver0_1_1_2_3(){
-		Formato formateador = new Formato("");
+		Formato formateador = new Formato("", "");
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(0 , 0);
 		listaNumeros.add(1 , 1);
@@ -27,7 +27,7 @@ public class TestFormato {
 	
 	@Test
 	public void formatoDeberiaDevolver0_1_1_2_3_5_8_13(){
-		Formato formateador = new Formato("");
+		Formato formateador = new Formato("", "");
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(0 , 0);
 		listaNumeros.add(1 , 1);
@@ -49,7 +49,7 @@ public class TestFormato {
 	@Test
 	public void formatoDeberiaDevolverFormatoHorizontalCuandoArgumentoEsH() {
 		String orientacion = "h";
-		Formato formateador = new Formato(orientacion);
+		Formato formateador = new Formato(orientacion, "");
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(0 , 0);
 		listaNumeros.add(1 , 1);
@@ -71,7 +71,7 @@ public class TestFormato {
 	@Test
 	public void formatoDeberiaDevolverFormatoVerticalCuandoArgumentoEsV() {
 		String orientacion = "v";
-		Formato formateador = new Formato(orientacion);
+		Formato formateador = new Formato(orientacion, "");
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(0 , 0);
 		listaNumeros.add(1 , 1);
@@ -94,6 +94,50 @@ public class TestFormato {
 										+ "5" + "\r\n"
 										+ "8" + "\r\n"
 										+ "13";
+		
+		Assert.assertEquals(valorEsprado, valorObtenido);
+	}
+	
+	@Test
+	public void formatoDeberiaDevolverFormatoDirectoCuandoArgumentoEsD() {
+		String direccion = "d";
+		Formato formateador = new Formato("", direccion);
+		List<Integer> listaNumeros = new LinkedList<Integer>();
+		listaNumeros.add(0 , 0);
+		listaNumeros.add(1 , 1);
+		listaNumeros.add(2 , 1);
+		listaNumeros.add(3 , 2);
+		listaNumeros.add(4 , 3);
+		listaNumeros.add(5 , 5);
+		listaNumeros.add(6 , 8);
+		listaNumeros.add(7 , 13);
+		
+		formateador.aplicarFormato(listaNumeros);
+		
+		String valorObtenido = formateador.getSucesion();
+		String valorEsprado = "fibo<8>: 0 1 1 2 3 5 8 13 ";
+		
+		Assert.assertEquals(valorEsprado, valorObtenido);
+	}
+	
+	@Test
+	public void formatoDeberiaDevolverFormatoIndirectoCuandoArgumentoEsI() {
+		String direccion = "i";
+		Formato formateador = new Formato("", direccion);
+		List<Integer> listaNumeros = new LinkedList<Integer>();
+		listaNumeros.add(0 , 0);
+		listaNumeros.add(1 , 1);
+		listaNumeros.add(2 , 1);
+		listaNumeros.add(3 , 2);
+		listaNumeros.add(4 , 3);
+		listaNumeros.add(5 , 5);
+		listaNumeros.add(6 , 8);
+		listaNumeros.add(7 , 13);
+		
+		formateador.aplicarFormato(listaNumeros);
+		
+		String valorObtenido = formateador.getSucesion();
+		String valorEsprado = "fibo<8>: 13 8 5 3 2 1 1 0 ";
 		
 		Assert.assertEquals(valorEsprado, valorObtenido);
 	}

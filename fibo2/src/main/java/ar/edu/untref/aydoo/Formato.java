@@ -1,18 +1,22 @@
 package ar.edu.untref.aydoo;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Formato {
 	
-	String cadenaSucecion;
+	private String cadenaSucecion;
 	private String orientacion;
+	private String direccion;
 		
-	public Formato(String orientacionSeleccionada) {
+	public Formato(String orientacionSeleccionada, String direccionSeleccionada) {
 		this.orientacion = orientacionSeleccionada;
+		this.direccion = direccionSeleccionada;
 	}
 
 	public void aplicarFormato(List<Integer> listaNumeros){
 		this.cadenaSucecion = "fibo<" +listaNumeros.size() + ">: ";
+		this.aplicarDireccion(listaNumeros);
 		for(int i = 0; i < listaNumeros.size(); i++){
 			//cadenaSucecion = cadenaSucecion + listaNumeros.get(i).toString() + " ";
 			this.aplicarOrientacion(listaNumeros, i);
@@ -34,6 +38,13 @@ public class Formato {
 	private void aplicarOrientacionVertical(List<Integer> listaNumeros, int posicion) {
 		this.cadenaSucecion = this.cadenaSucecion + "\r\n" +  listaNumeros.get(posicion).toString();
 	}
+	
+	private void aplicarDireccion(List<Integer> listaNumeros) {
+		if(this.direccion.equals("i")) {
+			Collections.reverse(listaNumeros);
+		}
+	}	
+	
 	public String getSucesion(){
 		return cadenaSucecion;
 	} 

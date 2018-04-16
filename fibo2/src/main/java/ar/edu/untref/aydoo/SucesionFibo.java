@@ -9,7 +9,7 @@ public class SucesionFibo {
 	
 	public SucesionFibo(){
 		this.entrada = new Entrada();
-		this.formateador = new Formato("");
+		this.formateador = new Formato("", "");
 		this.calculador = new CalculadorFibo();
 	}
 
