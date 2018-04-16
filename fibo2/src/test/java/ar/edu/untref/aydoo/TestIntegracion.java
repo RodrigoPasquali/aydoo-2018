@@ -42,5 +42,20 @@ public class TestIntegracion {
 
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
+	
+	@Test
+	public void resultadoDeberiaSerEnVerticalyIndirectoCuandoSeIngresaVI() throws Exception {
+		String[] cadena = {"-o=vi", "5"};
+		SucesionFibo sucesion = new SucesionFibo(cadena);	
+		String valorEsperado = "fibo<5>: " + "\r\n"
+										+ "3" + "\r\n"
+										+ "2" + "\r\n"
+										+ "1" + "\r\n"
+										+ "1" + "\r\n"
+										+ "0" ;
+		String valorObtenido = sucesion.generarRespuesta();
+
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}	
 
 }
