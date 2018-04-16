@@ -14,6 +14,7 @@ public class SucesionFibo {
 	}
 
 	public String generarRespuesta() throws Exception{
+		this.entrada.procesarParametros();
 		int cantidadSucesiones = this.entrada.getNumero();
 		List<Integer> listaNumeros = this.calculador.calcularSucecion(cantidadSucesiones);
 		this.formateador.aplicarFormato(listaNumeros);

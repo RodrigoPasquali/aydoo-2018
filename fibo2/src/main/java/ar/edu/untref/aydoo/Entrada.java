@@ -9,35 +9,38 @@ public class Entrada {
 	
 	public Entrada(String cadenaEntrada[]) {
 		this.cadena = cadenaEntrada;
+		this.orientacion = 'h';
+		this.direccion = 'd';
 	}
 	
-	public int getNumero() throws Exception {
+	public void procesarParametros() throws Exception {
+		this.verificarNumero();
+		this.getFormato();
+	}
+	
+	private void verificarNumero() throws Exception {
 		String argumento;
-		int numeroObtenido = 0;
-		for (int i = 0; i < this.cadena.length; i++) {
-			argumento = this.cadena[i];
-			try {
-				numeroObtenido = Integer.parseInt(argumento);
-
-		       	} catch (NumberFormatException nfe) {
-		       		throw new Exception("Debe introducir el numero de suceciones");
-		   	}
+		argumento = this.cadena[this.cadena.length-1];
+		try {
+			this.numero = Integer.parseInt(argumento);
+		} catch (Exception e) {
+	       	throw new Exception("Debe introducir el numero de suceciones");
 		}
-	    return numeroObtenido;
 	}
 	
-	public boolean tieneFormato() {
+	public int getNumero() {
+		return this.numero;
+	}
+	
+	private void getFormato() {
 		String formato;
-		boolean hayFormato = false;
 		for(int i = 0; i< this.cadena.length; i++) {
 			formato = this.cadena[i];
 			if(formato.contains("-o=")) {
 				this.orientacion = formato.charAt(3);
 				this.direccion = formato.charAt(4);
-				hayFormato = true;
 			}
 		}
-		return hayFormato;
 	}
 	
 	public char getOrientacion() {
