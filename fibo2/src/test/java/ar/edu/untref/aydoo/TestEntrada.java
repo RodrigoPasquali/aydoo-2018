@@ -53,5 +53,19 @@ public class TestEntrada {
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 	
-
+	@Test
+	public void getOrientacionYDireccionDeberiaDevolverHDCuandoNoSeIngresaFormato() throws Exception {
+		String[] cadena = {"44"};
+		Entrada entrada = new Entrada(cadena);
+		char valorEsperadoD = 'd';
+		char valorEsperadoO = 'h';
+		entrada.procesarParametros();
+		
+		char valorObtenidoD = entrada.getDireccion();
+		char valorObtenidoO = entrada.getOrientacion();
+		
+		Assert.assertEquals(valorEsperadoD, valorObtenidoD);
+		Assert.assertEquals(valorEsperadoO, valorObtenidoO);
+	}
+	
 }
