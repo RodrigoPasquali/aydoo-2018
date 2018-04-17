@@ -68,4 +68,27 @@ public class TestIntegracion {
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}	
 
+	@Test
+	public void resultadoDeberiaArrojarExcepcionCuadnoSeIngresaHK() throws Exception {
+		String[] cadena = {"-o=hk", "5"};
+		SucesionFibo sucesion = new SucesionFibo(cadena);	
+
+		try {
+			sucesion.generarRespuesta();
+		}catch(Exception e) {
+			
+		}	
+	}
+	
+	@Test
+	public void resultadoDeberiaArrojarExcepcionCuadnoSeIngresaUD() throws Exception {
+		String[] cadena = {"-o=ud", "5"};
+		SucesionFibo sucesion = new SucesionFibo(cadena);	
+
+		try {
+			sucesion.generarRespuesta();
+		}catch(Exception e) {
+			
+		}	
+	}
 }

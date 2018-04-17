@@ -32,15 +32,13 @@ public class Entrada {
 		return this.numero;
 	}
 	
-	private void getFormato() {
+	private void getFormato() throws Exception {
 		String formato;
 		for(int i = 0; i< this.cadena.length; i++) {
 			formato = this.cadena[i];
 			if(formato.contains("-o=")) {
-				//this.orientacion = formato.charAt(3);
-				//this.direccion = formato.charAt(4);
-				this.orientacion = formato.substring(3,4);
-				this.direccion = formato.substring(4,5);
+				this.verificarOrientacion(formato.substring(3,4));
+				this.verificarDireccion(formato.substring(4,5));
 			}
 		}
 	}
@@ -51,6 +49,22 @@ public class Entrada {
 	
 	public String getDireccion() {
 		return this.direccion;
+	}
+	
+	private void verificarOrientacion(String orientacionIngresada) throws Exception {
+		if(orientacionIngresada.equals("h")  || orientacionIngresada.equals("v") ) {
+			this.orientacion = orientacionIngresada;
+		}else {
+			throw new Exception("Opcion no valida");
+		}
+	}
+	
+	private void verificarDireccion(String direccionIngresada) throws Exception {
+		if(direccionIngresada.equals("d" )|| direccionIngresada.equals("i")) {
+			this.direccion = direccionIngresada;
+		}else {
+			throw new Exception("Opcion no valida");
+		}
 	}
 
 }
