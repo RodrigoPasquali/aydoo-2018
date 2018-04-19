@@ -49,7 +49,7 @@ public class TestFormato {
 	@Test
 	public void formatoDeberiaDevolverFormatoHorizontalCuandoArgumentoEsH() {
 		String orientacion = "h";
-		Formato formateador = new Formato(orientacion, "");
+		Formato formateador = new Formato(orientacion, "d");
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(0 , 0);
 		listaNumeros.add(1 , 1);
@@ -71,7 +71,7 @@ public class TestFormato {
 	@Test
 	public void formatoDeberiaDevolverFormatoVerticalCuandoArgumentoEsV() {
 		String orientacion = "v";
-		Formato formateador = new Formato(orientacion, "");
+		Formato formateador = new Formato(orientacion, "d");
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(0 , 0);
 		listaNumeros.add(1 , 1);
@@ -101,7 +101,7 @@ public class TestFormato {
 	@Test
 	public void formatoDeberiaDevolverFormatoDirectoCuandoArgumentoEsD() {
 		String direccion = "d";
-		Formato formateador = new Formato("", direccion);
+		Formato formateador = new Formato("h", direccion);
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(0 , 0);
 		listaNumeros.add(1 , 1);
@@ -123,7 +123,7 @@ public class TestFormato {
 	@Test
 	public void formatoDeberiaDevolverFormatoIndirectoCuandoArgumentoEsI() {
 		String direccion = "i";
-		Formato formateador = new Formato("", direccion);
+		Formato formateador = new Formato("h", direccion);
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(0 , 0);
 		listaNumeros.add(1 , 1);
@@ -171,5 +171,49 @@ public class TestFormato {
 				+ "0";
 		
 		Assert.assertEquals(valorEsprado, valorObtenido);
+	}
+	
+	@Test
+	public void formatoDeberiaVolverOpcionNovalidaCuandoSeIngresaZD() {
+		String posicion = "z";
+		String direccion = "d";
+		Formato formateador = new Formato(posicion, direccion);
+		List<Integer> listaNumeros = new LinkedList<Integer>();
+		listaNumeros.add(0 , 0);
+		listaNumeros.add(1 , 1);
+		listaNumeros.add(2 , 1);
+		listaNumeros.add(3 , 2);
+		listaNumeros.add(4 , 3);
+		listaNumeros.add(5 , 5);
+		listaNumeros.add(6 , 8);
+		listaNumeros.add(7 , 13);
+		String valorEsperado = "Opcion no valida";
+		formateador.aplicarFormato(listaNumeros);
+		
+		String valorObtenido = formateador.getSucesion();
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test
+	public void formatoDeberiaVolverOpcionNovalidaCuandoSeIngresaHK() {
+		String posicion = "h";
+		String direccion = "k";
+		Formato formateador = new Formato(posicion, direccion);
+		List<Integer> listaNumeros = new LinkedList<Integer>();
+		listaNumeros.add(0 , 0);
+		listaNumeros.add(1 , 1);
+		listaNumeros.add(2 , 1);
+		listaNumeros.add(3 , 2);
+		listaNumeros.add(4 , 3);
+		listaNumeros.add(5 , 5);
+		listaNumeros.add(6 , 8);
+		listaNumeros.add(7 , 13);
+		String valorEsperado = "Opcion no valida";
+		formateador.aplicarFormato(listaNumeros);
+		
+		String valorObtenido = formateador.getSucesion();
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 }

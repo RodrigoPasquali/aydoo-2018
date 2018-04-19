@@ -73,22 +73,21 @@ public class TestIntegracion {
 		String[] cadena = {"-o=hk", "5"};
 		SucesionFibo sucesion = new SucesionFibo(cadena);	
 
-		try {
-			sucesion.generarRespuesta();
-		}catch(Exception e) {
-			
-		}	
+		String valorEsperado = "Opcion no valida";
+		String valorObtenido = sucesion.generarRespuesta();
+
+		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 	
 	@Test
 	public void resultadoDeberiaArrojarExcepcionCuadnoSeIngresaUD() throws Exception {
 		String[] cadena = {"-o=ud", "5"};
 		SucesionFibo sucesion = new SucesionFibo(cadena);	
+		String valorEsperado = "Opcion no valida";
+		
+		String valorObtenido = sucesion.generarRespuesta();
 
-		try {
-			sucesion.generarRespuesta();
-		}catch(Exception e) {
-			
-		}	
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 }
