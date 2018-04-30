@@ -18,7 +18,6 @@ public class Formato {
 		if(this.verificarOrientacion(this.orientacion ) && this.verificarDireccion(this.direccion)) {
 				this.aplicarDireccion(listaNumeros);
 				for(int i = 0; i < listaNumeros.size(); i++){
-					//cadenaSucecion = cadenaSucecion + listaNumeros.get(i).toString() + " ";
 					this.aplicarOrientacion(listaNumeros, i);
 				}
 		} else {
