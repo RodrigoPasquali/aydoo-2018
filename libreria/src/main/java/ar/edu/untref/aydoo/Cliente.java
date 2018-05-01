@@ -9,11 +9,13 @@ public class Cliente {
 	private String direccion;
 	private CuentaCorriente cuentaCorriente;
 	private List<Compra> listaDeCompras;
+	private List<Suscripcion> listaDeSuscripciones;
 
 	public Cliente(String nombreIngresado, String direccionIngresado) {
 		this.nombre = nombreIngresado;
 		this.direccion = direccionIngresado;
 		this.listaDeCompras = new LinkedList<Compra>();
+		this.listaDeSuscripciones = new LinkedList<Suscripcion>();
 	}
 
 	public void setCuentaCorriente(CuentaCorriente cuentaCorrienteIngresada) {
@@ -28,9 +30,12 @@ public class Cliente {
 		return this.listaDeCompras;
 	}
 
-	public void realizarSuscripcion(Suscripcion revista, int i, int j, int k) {
-		// TODO Auto-generated method stub
-		
+	public void realizarSuscripcion(Suscripcion suscripcionNueva) {
+		this.listaDeSuscripciones.add(suscripcionNueva);
+	}
+
+	public List<Suscripcion> getListaSuscripciones() {
+		return this.listaDeSuscripciones;
 	}
 
 }

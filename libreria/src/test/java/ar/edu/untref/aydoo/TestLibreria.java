@@ -13,11 +13,14 @@ public class TestLibreria {
 		Producto libro = new Producto(200);
 		CuentaCorriente cuentaCorrienteJuan = new CuentaCorriente();
 		juan.setCuentaCorriente(cuentaCorrienteJuan);
-		Compra compraDelMes = new Compra(libro, 2018, 1, 2); 
+		int anio = 2018;
+		int mes = 1;
+		int dia = 2;
+		Compra compraDelMes = new Compra(libro, anio, mes, dia); 
 		juan.realizarComprar(compraDelMes);
 		double valorEsperado = 200;
 		
-		double valorObtenido = libreria.cobrarMontoMesCliente(juan, 2018, 1);
+		double valorObtenido = libreria.cobrarMontoMesCliente(juan, anio, mes);
 		
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
@@ -30,13 +33,16 @@ public class TestLibreria {
 		Producto lapicera = new Producto(50);
 		CuentaCorriente cuentaCorrienteJuan = new CuentaCorriente();
 		juan.setCuentaCorriente(cuentaCorrienteJuan);
-		Compra compraDeLapicera = new Compra(libro, 2018, 1, 2); 
-		Compra compraDeLibro = new Compra(lapicera, 2018, 1, 2);
+		int anio = 2018;
+		int mes = 1;
+		int dia = 2;
+		Compra compraDeLapicera = new Compra(libro, anio, mes, dia); 
+		Compra compraDeLibro = new Compra(lapicera, anio, mes, dia);
 		juan.realizarComprar(compraDeLibro);
 		juan.realizarComprar(compraDeLapicera);
 		double valorEsperado = 150;
 		
-		double valorObtenido = libreria.cobrarMontoMesCliente(juan, 2018, 1);
+		double valorObtenido = libreria.cobrarMontoMesCliente(juan, anio, mes);
 		
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
@@ -50,30 +56,40 @@ public class TestLibreria {
 		Producto goma = new Producto(10);
 		CuentaCorriente cuentaCorrienteJuan = new CuentaCorriente();
 		juan.setCuentaCorriente(cuentaCorrienteJuan);
-		Compra compraDeLapicera = new Compra(libro, 2018, 1, 2); 
-		Compra compraDeLibro = new Compra(lapicera, 2018, 1, 2);
-		Compra compraGoma = new Compra(goma, 2018, 3, 12);
+		int anio1 = 2018;
+		int mes1 = 1;
+		int dia1 = 2;
+		int anio2 = 2018;
+		int mes2 = 3;
+		int dia2 = 12;
+		Compra compraDeLapicera = new Compra(libro, anio1, mes1, dia1); 
+		Compra compraDeLibro = new Compra(lapicera, anio1, mes1, dia1);
+		Compra compraGoma = new Compra(goma, anio2, mes2, dia2);
 		juan.realizarComprar(compraDeLibro);
 		juan.realizarComprar(compraDeLapicera);
 		juan.realizarComprar(compraGoma);
 		double valorEsperado = 100;
 		
-		double valorObtenido = libreria.cobrarMontoMesCliente(juan, 2018, 1);
+		double valorObtenido = libreria.cobrarMontoMesCliente(juan, anio1, mes1);
 		
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 	
-//	@Test
+	@Test
 	public void elCobroDelMesDeberiaSerDe20CuandoHayUnaSuscripcionQuincenalEnEnero2018() {
 		Libreria libreria = new Libreria();
 		Cliente juan = new Cliente("Juan","San juan 2890");
 		CuentaCorriente cuentaCorrienteJuan = new CuentaCorriente();
 		juan.setCuentaCorriente(cuentaCorrienteJuan);
-		Suscripcion revista = new Suscripcion(10, 2);
-		juan.realizarSuscripcion(revista, 2018, 7, 1);
+		int anio = 2018;
+		int mes = 4;
+		int dia = 1;
+		int periodicidadAlMes = 2;
+		Suscripcion revista = new Suscripcion(10, periodicidadAlMes, anio, mes, dia);
+		juan.realizarSuscripcion(revista);
 		double valorEsperado = 20;
 		
-		double valorObtenido = libreria.cobrarMontoMesCliente(juan, 2018, 1);
+		double valorObtenido = libreria.cobrarMontoMesCliente(juan, anio, mes);
 		
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
