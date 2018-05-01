@@ -23,7 +23,7 @@ public class Libreria {
 
 	public double cobrarMontoAnioCliente(Cliente cliente, Descuento descuento, int anio) {
 		double montoTotal = 0;
-		for(int mes = 1; mes < 12; mes ++) {
+		for(int mes = 1; mes <= 12; mes ++) {
 			montoTotal = montoTotal + cobrarMontoMesCliente(cliente, descuento, anio, mes);
 		}
 		return montoTotal;
