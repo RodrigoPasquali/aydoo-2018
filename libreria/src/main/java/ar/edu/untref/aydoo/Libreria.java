@@ -11,7 +11,7 @@ public class Libreria {
 		double montoDelMes = 0;
 		for(int i = 0; i < listaDeCompras.size(); i++) {
 			Calendar fecha = listaDeCompras.get(i).getFecha();
-			if((fecha.MONTH == mes) && (fecha.YEAR == anio)) {
+			if((fecha.get(Calendar.MONTH) == mes) && (fecha.get(Calendar.YEAR) == anio)) {
 				montoDelMes = montoDelMes + listaDeCompras.get(i).getPrecio();
 			}
 		}
