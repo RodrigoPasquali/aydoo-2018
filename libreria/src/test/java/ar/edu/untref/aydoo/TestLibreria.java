@@ -159,4 +159,31 @@ public class TestLibreria {
 		
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
+	
+	@Test
+	public void elCobroDelAñoDeberiaSerDe201CuandoSeCompra1Articulo1ProductoYHayUnaSuscripcion() {
+		Libreria libreria = new Libreria();
+		Cliente juan = new Cliente("Juan","San juan 2890");
+		Producto libro = new Producto(50);
+		Producto lapicera = new ArticuloDeLibreria(100);
+		Descuento descuento = new DescuentoNulo();
+		int anio = 2018;
+		int mes = 1;
+		int dia = 2;
+		Compra compraDeLapicera = new Compra(lapicera, anio, mes, dia); 
+		mes = 5;
+		Compra compraDeLibro = new Compra(libro, anio, mes, dia);
+		juan.realizarComprar(compraDeLibro);
+		juan.realizarComprar(compraDeLapicera);
+		int vecesAlMes = 2;
+		Periodicidad periodo = Periodicidad.NULA;
+		mes = 10;
+		Suscripcion diario = new Suscripcion(15, vecesAlMes, anio, mes, dia, periodo);
+		juan.realizarSuscripcion(diario);
+		double valorEsperado = 201;
+		
+		double valorObtenido = libreria.cobrarMontoAnioCliente(juan, descuento, anio);
+		
+		assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
 }

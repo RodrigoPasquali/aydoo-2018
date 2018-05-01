@@ -20,5 +20,15 @@ public class Libreria {
 		montoTotal = descuento.aplicarDescuento(cliente, anio, mes);
 		return montoTotal;
 	}
+
+	public double cobrarMontoAnioCliente(Cliente cliente, Descuento descuento, int anio) {
+		double montoTotal = 0;
+		for(int mes = 1; mes < 12; mes ++) {
+			montoTotal = montoTotal + cobrarMontoMesCliente(cliente, descuento, anio, mes);
+		}
+		return montoTotal;
+		
+		
+	}
 	
 }
