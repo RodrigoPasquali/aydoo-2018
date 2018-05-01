@@ -2,7 +2,7 @@ package ar.edu.untref.aydoo;
 
 public class Producto {
 
-	private double precio;
+	protected double precio;
 
 	public Producto(double precioProducto) {
 		this.precio = precioProducto;
