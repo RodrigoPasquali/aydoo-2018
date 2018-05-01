@@ -11,8 +11,6 @@ public class TestLibreria {
 		Libreria libreria = new Libreria();
 		Cliente juan = new Cliente("Juan","San juan 2890");
 		Producto libro = new Producto(200);
-		CuentaCorriente cuentaCorrienteJuan = new CuentaCorriente();
-		juan.setCuentaCorriente(cuentaCorrienteJuan);
 		int anio = 2018;
 		int mes = 1;
 		int dia = 2;
@@ -31,13 +29,11 @@ public class TestLibreria {
 		Cliente juan = new Cliente("Juan","San juan 2890");
 		Producto libro = new Producto(100);
 		Producto lapicera = new Producto(50);
-		CuentaCorriente cuentaCorrienteJuan = new CuentaCorriente();
-		juan.setCuentaCorriente(cuentaCorrienteJuan);
 		int anio = 2018;
 		int mes = 1;
 		int dia = 2;
-		Compra compraDeLapicera = new Compra(libro, anio, mes, dia); 
-		Compra compraDeLibro = new Compra(lapicera, anio, mes, dia);
+		Compra compraDeLapicera = new Compra(lapicera, anio, mes, dia); 
+		Compra compraDeLibro = new Compra(libro, anio, mes, dia);
 		juan.realizarComprar(compraDeLibro);
 		juan.realizarComprar(compraDeLapicera);
 		double valorEsperado = 150;
@@ -54,16 +50,14 @@ public class TestLibreria {
 		Producto libro = new Producto(50);
 		Producto lapicera = new Producto(50);
 		Producto goma = new Producto(10);
-		CuentaCorriente cuentaCorrienteJuan = new CuentaCorriente();
-		juan.setCuentaCorriente(cuentaCorrienteJuan);
 		int anio1 = 2018;
 		int mes1 = 1;
 		int dia1 = 2;
 		int anio2 = 2018;
 		int mes2 = 3;
 		int dia2 = 12;
-		Compra compraDeLapicera = new Compra(libro, anio1, mes1, dia1); 
-		Compra compraDeLibro = new Compra(lapicera, anio1, mes1, dia1);
+		Compra compraDeLapicera = new Compra(lapicera, anio1, mes1, dia1); 
+		Compra compraDeLibro = new Compra(libro, anio1, mes1, dia1);
 		Compra compraGoma = new Compra(goma, anio2, mes2, dia2);
 		juan.realizarComprar(compraDeLibro);
 		juan.realizarComprar(compraDeLapicera);
@@ -79,8 +73,6 @@ public class TestLibreria {
 	public void elCobroDelMesDeberiaSerDe20CuandoHayUnaSuscripcionQuincenalEnEnero2018() {
 		Libreria libreria = new Libreria();
 		Cliente juan = new Cliente("Juan","San juan 2890");
-		CuentaCorriente cuentaCorrienteJuan = new CuentaCorriente();
-		juan.setCuentaCorriente(cuentaCorrienteJuan);
 		int anio = 2018;
 		int mes = 4;
 		int dia = 1;
@@ -93,5 +85,27 @@ public class TestLibreria {
 		
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
-	
+
+	@Test
+	public void elCobroDelMesDeberiaSerDe211CuandoSeCompra1Articulo1ProductoYHayUnaSuscripcionEnElMes() {
+		Libreria libreria = new Libreria();
+		Cliente juan = new Cliente("Juan","San juan 2890");
+		Producto libro = new Producto(50);
+		Producto lapicera = new ArticuloDeLibreria(100);
+		int anio = 2018;
+		int mes = 1;
+		int dia = 2;
+		Compra compraDeLapicera = new Compra(lapicera, anio, mes, dia); 
+		Compra compraDeLibro = new Compra(libro, anio, mes, dia);
+		juan.realizarComprar(compraDeLibro);
+		juan.realizarComprar(compraDeLapicera);
+		int vecesAlMes = 4;
+		Suscripcion diario = new Suscripcion(10, vecesAlMes, anio, mes, dia);
+		juan.realizarSuscripcion(diario);
+		double valorEsperado = 211;
+		
+		double valorObtenido = libreria.cobrarMontoMesCliente(juan, anio, mes);
+		
+		assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
 }
