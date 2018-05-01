@@ -28,4 +28,9 @@ public class Cliente {
 		return this.listaDeCompras;
 	}
 
+	public void realizarSuscripcion(Suscripcion revista, int i, int j, int k) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

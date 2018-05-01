@@ -1,7 +1,6 @@
 package ar.edu.untref.aydoo;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 
@@ -64,5 +63,19 @@ public class TestLibreria {
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 	
+//	@Test
+	public void elCobroDelMesDeberiaSerDe20CuandoHayUnaSuscripcionQuincenalEnEnero2018() {
+		Libreria libreria = new Libreria();
+		Cliente juan = new Cliente("Juan","San juan 2890");
+		CuentaCorriente cuentaCorrienteJuan = new CuentaCorriente();
+		juan.setCuentaCorriente(cuentaCorrienteJuan);
+		Suscripcion revista = new Suscripcion(10, 2);
+		juan.realizarSuscripcion(revista, 2018, 7, 1);
+		double valorEsperado = 20;
+		
+		double valorObtenido = libreria.cobrarMontoMesCliente(juan, 2018, 1);
+		
+		assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
 	
 }
