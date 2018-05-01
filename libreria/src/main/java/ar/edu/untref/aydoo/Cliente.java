@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Cliente {
-
 	private String nombre;
 	private String direccion;
 	private CuentaCorriente cuentaCorriente;
@@ -37,5 +36,4 @@ public class Cliente {
 	public List<Suscripcion> getListaSuscripciones() {
 		return this.listaDeSuscripciones;
 	}
-
 }
