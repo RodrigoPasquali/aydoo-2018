@@ -141,7 +141,7 @@ public class TestLibreria {
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 	
-//	@Test
+	@Test
 	public void elCobroDelMesDeberiaSerDe80CuandoSeRealizaUnaSuscripcionAnual() {
 		Libreria libreria = new Libreria();
 		Descuento descuento = new DescuentoSuscripcionAnual();
