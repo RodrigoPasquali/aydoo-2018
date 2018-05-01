@@ -20,8 +20,12 @@ public class Cliente {
 		this.cuentaCorriente = cuentaCorrienteIngresada;
 	}
 
-	public void realizarComprar(Compra compraDelMes) {
-		this.listaDeCompras.add(compraDelMes);
+	public void realizarComprar(Compra compraRealizada) {
+		this.listaDeCompras.add(compraRealizada);
+	}
+	
+	public List<Compra> getListaCompras() {
+		return this.listaDeCompras;
 	}
 
 }
