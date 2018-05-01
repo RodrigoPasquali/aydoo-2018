@@ -11,7 +11,8 @@ public class TestSuscripcion {
 		int mes = 1;
 		int dia = 1;
 		int vecesAlMes = 2;
-		Suscripcion revista = new Suscripcion(15, vecesAlMes, anio, mes, dia);
+		Periodicidad periodo = Periodicidad.NULA;
+		Suscripcion revista = new Suscripcion(15, vecesAlMes, anio, mes, dia, periodo);
 		double valorEsperado = 30;
 		
 		double valorObtenido = revista.getPrecioAlMes();

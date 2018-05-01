@@ -39,5 +39,22 @@ public class TestDescuento {
 	
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
+	
+	@Test
+	public void aplicarDescuentoPorSuscripcionAnualOtorgaun20PorcientoDeDescuento() {
+		Cliente laura = new Cliente("Laura", "Calle falsa 123");
+		int anio = 2018;
+		int mes = 1;
+		int dia = 1;
+		Descuento descuento = new DescuentoSuscripcionAnual();
+		Periodicidad periodo = Periodicidad.ANUAL;
+		Suscripcion revista = new Suscripcion(25, 4, anio, mes, dia, periodo);
+		laura.realizarSuscripcion(revista);
+		double valorEsperado = 80;
+		
+		double valorObtenido = descuento.aplicarDescuento(laura, anio, mes-1);
+	
+		assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
 }
 

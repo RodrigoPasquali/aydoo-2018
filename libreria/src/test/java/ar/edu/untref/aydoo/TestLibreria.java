@@ -81,7 +81,8 @@ public class TestLibreria {
 		int mes = 4;
 		int dia = 1;
 		int periodicidadAlMes = 2;
-		Suscripcion revista = new Suscripcion(10, periodicidadAlMes, anio, mes, dia);
+		Periodicidad periodo = Periodicidad.NULA;
+		Suscripcion revista = new Suscripcion(10, periodicidadAlMes, anio, mes, dia, periodo);
 		juan.realizarSuscripcion(revista);
 		double valorEsperado = 20;
 		
@@ -105,7 +106,8 @@ public class TestLibreria {
 		juan.realizarComprar(compraDeLibro);
 		juan.realizarComprar(compraDeLapicera);
 		int vecesAlMes = 4;
-		Suscripcion diario = new Suscripcion(10, vecesAlMes, anio, mes, dia);
+		Periodicidad periodo = Periodicidad.NULA;
+		Suscripcion diario = new Suscripcion(10, vecesAlMes, anio, mes, dia, periodo);
 		juan.realizarSuscripcion(diario);
 		double valorEsperado = 211;
 		
@@ -129,9 +131,29 @@ public class TestLibreria {
 		juan.realizarComprar(compraDeLibro);
 		juan.realizarComprar(compraDeLapicera);
 		int vecesAlMes = 4;
-		Suscripcion diario = new Suscripcion(10, vecesAlMes, anio, mes, dia);
+		Periodicidad periodo = Periodicidad.NULA;
+		Suscripcion diario = new Suscripcion(10, vecesAlMes, anio, mes, dia, periodo);
 		juan.realizarSuscripcion(diario);
 		double valorEsperado = 200.45;
+		
+		double valorObtenido = libreria.cobrarMontoMesCliente(juan, descuento, anio, mes);
+		
+		assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
+	
+//	@Test
+	public void elCobroDelMesDeberiaSerDe80CuandoSeRealizaUnaSuscripcionAnual() {
+		Libreria libreria = new Libreria();
+		Descuento descuento = new DescuentoSuscripcionAnual();
+		Cliente juan = new Cliente("Juan","San juan 2890");
+		int anio = 2018;
+		int mes = 1;
+		int dia = 2;
+		int vecesAlMes = 4;
+		Periodicidad periodo = Periodicidad.ANUAL;
+		Suscripcion diario = new Suscripcion(25, vecesAlMes, anio, mes, dia, periodo);
+		juan.realizarSuscripcion(diario);
+		double valorEsperado = 80;
 		
 		double valorObtenido = libreria.cobrarMontoMesCliente(juan, descuento, anio, mes);
 		
