@@ -1,14 +1,6 @@
 package ar.edu.untref.aydoo;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class Libreria {
-	List<Descuento> listaDescuentos;
-	
-	public Libreria() {
-		this.listaDescuentos = new LinkedList<Descuento>();
-	}
 	
 	public double cobrarMontoMesCliente(Cliente cliente, Descuento descuento, int anio, int mes) {
 		mes--;
@@ -27,8 +19,6 @@ public class Libreria {
 			montoTotal = montoTotal + cobrarMontoMesCliente(cliente, descuento, anio, mes);
 		}
 		return montoTotal;
-		
-		
 	}
 	
 }

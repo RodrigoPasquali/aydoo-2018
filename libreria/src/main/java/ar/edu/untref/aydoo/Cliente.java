@@ -6,7 +6,6 @@ import java.util.List;
 public class Cliente {
 	private String nombre;
 	private String direccion;
-	private CuentaCorriente cuentaCorriente;
 	private List<Compra> listaDeCompras;
 	private List<Suscripcion> listaDeSuscripciones;
 
@@ -15,10 +14,6 @@ public class Cliente {
 		this.direccion = direccionIngresado;
 		this.listaDeCompras = new LinkedList<Compra>();
 		this.listaDeSuscripciones = new LinkedList<Suscripcion>();
-	}
-
-	public void setCuentaCorriente(CuentaCorriente cuentaCorrienteIngresada) {
-		this.cuentaCorriente = cuentaCorrienteIngresada;
 	}
 
 	public void realizarComprar(Compra compraRealizada) {
@@ -36,4 +31,5 @@ public class Cliente {
 	public List<Suscripcion> getListaSuscripciones() {
 		return this.listaDeSuscripciones;
 	}
+
 }

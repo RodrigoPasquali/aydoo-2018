@@ -21,10 +21,6 @@ public class Suscripcion {
 		return this.precio;
 	}
 	
-	public int getPeriodicidadEnElMes() {
-		return this.vecesAlMes;
-	}
-	
 	public double getPrecioAlMes() {
 		return this.precio * this.vecesAlMes;
 	}
