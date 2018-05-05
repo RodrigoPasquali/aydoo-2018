@@ -28,5 +28,4 @@ public class OrientacionHorizontal extends Orientacion{
 		}
 		return respuestaGenerada;
 	}
-
 }

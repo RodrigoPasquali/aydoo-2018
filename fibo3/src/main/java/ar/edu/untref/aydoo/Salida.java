@@ -1,27 +1,32 @@
 package ar.edu.untref.aydoo;
 
-import java.util.List;
+import java.io.IOException;
 
 public abstract class Salida {
 	private String cadenaSalida;
-	private List<Integer> listaNumeros;
+	private String formatoSalida;
+	protected Salida salidaSiguiente;
 
-	public Salida(List<Integer> listaNumerosIngresada) {
-		this.listaNumeros = listaNumerosIngresada;
-		this.cadenaSalida = "fibo<" +listaNumerosIngresada.size() + ">: ";
-	}
-
-	public abstract void aplicarSalida();
-
-	protected void setCadenaSalida(String cadena) {
+	public Salida(String cadena, String formatoSalidaIngresado) {
 		this.cadenaSalida = cadena;
+		this.formatoSalida = formatoSalidaIngresado;
 	}
+
+	public abstract void aplicarSalida() throws IOException;
 	
 	protected String getCadenaSalida() {
 		return this.cadenaSalida;
 	}
 	
-	protected List<Integer> getListaNumeros() {
-		return this.listaNumeros;
+	protected String getFormatoSalida() {
+		return this.formatoSalida;
+	}
+	
+	public void setSiguienteSalida(Salida salida) {
+		this.salidaSiguiente = salida;
+	}
+	
+	public Salida getSiguienteSalida() {
+		return this.salidaSiguiente;
 	}
 }
