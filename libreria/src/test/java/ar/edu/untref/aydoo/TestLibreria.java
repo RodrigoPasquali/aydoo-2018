@@ -165,7 +165,7 @@ public class TestLibreria {
 	}
 	
 	@Test
-	public void elCobroDelAñoDeberiaSerDe201CuandoSeCompra1Articulo1ProductoYHayUnaSuscripcion() {
+	public void elCobroDelAnioDeberiaSerDe201CuandoSeCompra1Articulo1ProductoYHayUnaSuscripcion() {
 		Libreria libreria = new Libreria();
 		Cliente juan = new Cliente("Juan","San juan 2890");
 		Producto libro = new Producto(50);
@@ -192,7 +192,7 @@ public class TestLibreria {
 	}
 	
 	@Test
-	public void elCobroDelAñoDeberiaSerDe195CuandoSeCompra1Articulo1ProductoYHayUnaSuscripcionAnual() {
+	public void elCobroDelAnioDeberiaSerDe195CuandoSeCompra1Articulo1ProductoYHayUnaSuscripcionAnual() {
 		Libreria libreria = new Libreria();
 		Cliente juan = new Cliente("Juan","San juan 2890");
 		Producto libro = new Producto(50);
@@ -219,7 +219,7 @@ public class TestLibreria {
 	}
 	
 	@Test
-	public void elCobroDelAñoDeberiaSerDe190CuandoSeCompra1Articulo1ProductoHaySuscripcionYCienteEstaRegistrado() {
+	public void elCobroDelAnioDeberiaSerDe190CuandoSeCompra1Articulo1ProductoHaySuscripcionYCienteEstaRegistrado() {
 		Libreria libreria = new Libreria();
 		Cliente juan = new Cliente("Juan","San juan 2890");
 		Producto libro = new Producto(59);
