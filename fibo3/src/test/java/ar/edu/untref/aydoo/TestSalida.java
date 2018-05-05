@@ -14,7 +14,7 @@ public class TestSalida {
 	public void salidaPorConsolaDeberiaDevolverElStringFinal() throws IOException {
 		String cadena = "fibo<8>: 0 1 1 2 3 5 8 13 ";
 		String salidaSolicitada = "";
-		Salida salida = new SalidaConsola(cadena, salidaSolicitada);
+		Salida salida = new SalidaArchivo(cadena, salidaSolicitada);
 		String valorEsperado = "fibo<8>: 0 1 1 2 3 5 8 13 ";
 		
 		salida.aplicarSalida();
@@ -27,7 +27,7 @@ public class TestSalida {
 	public void salidaArchivoDeberiaCrearArchivoEInsertarContenidoDeCadena() throws IOException {
 		String cadena = "fibo<8>: 0 1 1 2 3 5 8 13 ";
 		String salidaSolicitada = "-f=salida3.txt";
-		Salida salida = new SalidaConsola(cadena, salidaSolicitada);
+		Salida salida = new SalidaArchivo(cadena, salidaSolicitada);
 		String valorEsperado = "fibo<8>: 0 1 1 2 3 5 8 13 ";
 		
 		salida.aplicarSalida();
