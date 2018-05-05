@@ -13,7 +13,6 @@ public class DireccionDirecta extends Direccion{
 	@Override
 	public List<Integer> aplicarDireccion() {
 		this.setSiguienteDireccion(this.direccionSiguiente);
-//		if(this.direccion.equals("") || this.direccion.equals("d")) {
 		if(!this.direccion.equals("d")) {
 			return this.getSiguienteDireccion().aplicarDireccion();
 		} else {

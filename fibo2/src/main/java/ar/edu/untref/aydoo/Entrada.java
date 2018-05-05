@@ -39,9 +39,7 @@ public class Entrada {
 			if(formato.contains("-o=")) {
 				this.orientacion = formato.substring(3,4);
 				this.direccion = formato.substring(4,5);
-				if(this.direccion.equals("")) {
-					this.direccion = "d";
-				} else if(!this.direccion.equals("d") && !this.direccion.equals("i")) {
+				if(!this.direccion.equals("d") && !this.direccion.equals("i")) {
 					this.direccion = "Opciones no validas";
 				}
 			}
