@@ -6,7 +6,7 @@ import org.junit.Test;
 public class TestEntrada {
 	
 	@Test
-	public void getNumeroDeberiaDEvolverNumero8() throws Exception {
+	public void getNumeroDeberiaDevolverNumero8() throws Exception {
 		String[] cadena = {"8"};
 		Entrada entrada = new Entrada(cadena);
 		entrada.procesarParametros();
@@ -66,6 +66,18 @@ public class TestEntrada {
 		
 		Assert.assertEquals(valorEsperadoD, valorObtenidoD);
 		Assert.assertEquals(valorEsperadoO, valorObtenidoO);
+	}
+	
+	@Test
+	public void getDirecionDeberiaDevolverDCuandoNoSeIngresaFormato() throws Exception {
+		String[] cadena = {"34"};
+		Entrada entrada = new Entrada(cadena);
+		String valorEsperado = "d";
+		entrada.procesarParametros();
+		
+		String valorObtenido = entrada.getDireccion();
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 	
 }

@@ -1,7 +1,5 @@
 package ar.edu.untref.aydoo;
 
-import excepciones.ExcepcionNumeroInvalido;
-
 public class Entrada {
 	
 	private String[] cadena;
@@ -25,22 +23,27 @@ public class Entrada {
 		argumento = this.cadena[this.cadena.length-1];
 		try {
 			this.numero = Integer.parseInt(argumento);
-       	} catch (NumberFormatException nfe) {
-       		throw new ExcepcionNumeroInvalido();
-   		}
+		} catch (Exception e) {
+	       	throw new Exception("Debe introducir el numero de suceciones");
+		}
 	}
 	
 	public int getNumero() {
 		return this.numero;
 	}
 	
-	private void getFormato() {
+	private void getFormato() throws Exception {
 		String formato;
 		for(int i = 0; i< this.cadena.length; i++) {
 			formato = this.cadena[i];
 			if(formato.contains("-o=")) {
 				this.orientacion = formato.substring(3,4);
 				this.direccion = formato.substring(4,5);
+				if(this.direccion.equals("")) {
+					this.direccion = "d";
+				} else if(!this.direccion.equals("d") && !this.direccion.equals("i")) {
+					this.direccion = "Opciones no validas";
+				}
 			}
 		}
 	}
