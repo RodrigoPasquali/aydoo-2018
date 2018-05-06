@@ -26,12 +26,12 @@ public class TestSalida {
 	@Test
 	public void salidaArchivoDeberiaCrearArchivoEInsertarContenidoDeCadena() throws IOException {
 		String cadena = "fibo<8>: 0 1 1 2 3 5 8 13 ";
-		String salidaSolicitada = "-f=salida3.txt";
+		String salidaSolicitada = "-f=target/salida3.txt";
 		Salida salida = new SalidaArchivo(cadena, salidaSolicitada);
 		String valorEsperado = "fibo<8>: 0 1 1 2 3 5 8 13 ";
 		
 		salida.aplicarSalida();
-		FileReader f = new FileReader("salida3.txt");
+		FileReader f = new FileReader("target/salida3.txt");
 	    BufferedReader b = new BufferedReader(f);
 	    String valorActual = b.readLine();
 	    

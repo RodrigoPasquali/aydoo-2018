@@ -3,11 +3,11 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CalculadorFibo {
+public class FuncionamientoLista {
 	
 	private List<Integer> sucesionFibo;
 	
-	public CalculadorFibo(){
+	public FuncionamientoLista(){
 		sucesionFibo = new LinkedList<Integer>();
 	}
 	

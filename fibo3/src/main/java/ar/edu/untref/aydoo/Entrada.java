@@ -7,6 +7,7 @@ public class Entrada {
 	private String direccion;
 	private int numero;
 	private String formatoSalida;
+	private String funcionamiento;
 	
 	public Entrada(String cadenaEntrada[]) {
 		this.cadena = cadenaEntrada;
@@ -16,12 +17,13 @@ public class Entrada {
 	}
 	
 	public void procesarParametros() throws Exception {
-		this.verificarNumero();
-		this.getFormato();
+		this.setNumero();
+		this.setFormato();
 		this.setFormatoSalida();
+		this.setFuncionamiento();
 	}
 	
-	private void verificarNumero() throws Exception {
+	private void setNumero() throws Exception {
 		String argumento;
 		argumento = this.cadena[this.cadena.length-1];
 		try {
@@ -35,7 +37,7 @@ public class Entrada {
 		return this.numero;
 	}
 	
-	private void getFormato() throws Exception {
+	private void setFormato() throws Exception {
 		String formato;
 		for(int i = 0; i< this.cadena.length; i++) {
 			formato = this.cadena[i];
@@ -69,5 +71,19 @@ public class Entrada {
 	
 	public String getFormatoSalida() {
 		return this.formatoSalida;
+	}
+	
+	public void setFuncionamiento() {
+		String funcionamientoIngresado;
+		for(int i = 0; i< this.cadena.length; i++) {
+			funcionamientoIngresado = this.cadena[i];
+			if(funcionamientoIngresado.contains("-f=")) {
+				this.funcionamiento = funcionamientoIngresado;
+			}
+		}
+	}
+	
+	public String getFuncionamiento() {
+		return this.funcionamiento;
 	}
 }

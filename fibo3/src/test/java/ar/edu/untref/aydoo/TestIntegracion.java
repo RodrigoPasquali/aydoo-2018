@@ -112,12 +112,12 @@ public class TestIntegracion {
 	
 	@Test
 	public void resultadoDeberiaSerEnHorizontalyIndirectoEnUnArchivoCuandoSeIngresaHI_Y_F() throws Exception {
-		String[] cadena = {"-o=hi", "-f=test1.txt", "5"};
+		String[] cadena = {"-o=hi", "-f=target/test1.txt", "5"};
 		SucesionFibo sucesion = new SucesionFibo(cadena);	
 		String valorEsperado = "fibo<5>: 3 2 1 1 0 ";
 
 		sucesion.generarRespuesta();
-		FileReader f = new FileReader("test1.txt");
+		FileReader f = new FileReader("target/test1.txt");
 	    BufferedReader b = new BufferedReader(f);
 	    String valorObtenido = b.readLine();
 	    

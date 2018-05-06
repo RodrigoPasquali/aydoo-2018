@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SucesionFibo {
 	private Entrada entrada;
-	private CalculadorFibo calculador;
+	private FuncionamientoLista calculador;
 	private Orientacion orientacion;
 	private Direccion direccion;
 	private Salida salida;
@@ -12,7 +12,7 @@ public class SucesionFibo {
 	
 	public SucesionFibo(String[] arg){
 		this.entrada = new Entrada(arg);
-		this.calculador = new CalculadorFibo();
+		this.calculador = new FuncionamientoLista();
 	}
 
 	public void generarRespuesta() throws Exception{
