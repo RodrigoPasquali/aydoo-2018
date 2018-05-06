@@ -8,14 +8,15 @@ public class SucesionFibo {
 	private Orientacion orientacion;
 	private Direccion direccion;
 	private Salida salida;
+	private String respuesta;
 	
 	public SucesionFibo(String[] arg){
 		this.entrada = new Entrada(arg);
 		this.calculador = new CalculadorFibo();
 	}
 
-	public String generarRespuesta() throws Exception{
-		String respuesta = "Opciones no validas";
+	public void generarRespuesta() throws Exception{
+		this.respuesta = "Opciones no validas";
 		this.entrada.procesarParametros();
 		if(!this.entrada.getDireccion().equals("Opciones no validas")){
 			int cantidadSucesiones = this.entrada.getNumero();
@@ -26,12 +27,10 @@ public class SucesionFibo {
 			respuesta = this.orientacion.aplicarOrientacion();
 			this.salida = new SalidaArchivo(respuesta, entrada.getFormatoSalida());
 			this.salida.aplicarSalida();
-			if(this.entrada.getFormatoSalida().contains("-f=")) {
-				respuesta = "";
-			} else {
-				respuesta = this.salida.getCadenaSalida();
-			}		
 		}	
-		return respuesta;	
+	}
+	
+	public String getRespuesta() {
+		return this.respuesta;
 	}
 }

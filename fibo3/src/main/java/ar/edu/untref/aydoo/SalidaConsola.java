@@ -10,8 +10,11 @@ public class SalidaConsola extends Salida{
 
 	@Override
 	public void aplicarSalida() throws IOException {
-			System.out.println(this.getCadenaSalida());
-			this.getCadenaSalida();
+		this.imprimirEnConsola();
 	}
 
+	private String imprimirEnConsola() {
+		System.out.println(getCadenaSalida());
+		return this.getCadenaSalida();
+	}
 }

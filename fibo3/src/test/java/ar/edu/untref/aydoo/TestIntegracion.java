@@ -17,7 +17,9 @@ public class TestIntegracion {
 		SucesionFibo sucesion = new SucesionFibo(cadena);
 		String valorEsperado = "fibo<5>: 0 1 1 2 3 ";
 		
-		String valorObtenido = sucesion.generarRespuesta();	
+//		String valorObtenido = sucesion.generarRespuesta();
+		sucesion.generarRespuesta();
+		String valorObtenido = sucesion.getRespuesta();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
@@ -28,7 +30,9 @@ public class TestIntegracion {
 		SucesionFibo sucesion = new SucesionFibo(cadena);	
 		String valorEsperado = "fibo<8>: 0 1 1 2 3 5 8 13 ";
 		
-		String valorObtenido = sucesion.generarRespuesta();
+//		String valorObtenido = sucesion.generarRespuesta();
+		sucesion.generarRespuesta();
+		String valorObtenido = sucesion.getRespuesta();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
@@ -43,8 +47,10 @@ public class TestIntegracion {
 										+ "1" + "\r\n"
 										+ "2" + "\r\n"
 										+ "3" ;
-		String valorObtenido = sucesion.generarRespuesta();
-
+//		String valorObtenido = sucesion.generarRespuesta();
+		sucesion.generarRespuesta();
+		String valorObtenido = sucesion.getRespuesta();
+		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 	
@@ -58,7 +64,9 @@ public class TestIntegracion {
 										+ "1" + "\r\n"
 										+ "1" + "\r\n"
 										+ "0" ;
-		String valorObtenido = sucesion.generarRespuesta();
+//		String valorObtenido = sucesion.generarRespuesta();
+		sucesion.generarRespuesta();
+		String valorObtenido = sucesion.getRespuesta();
 
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}	
@@ -68,7 +76,10 @@ public class TestIntegracion {
 		String[] cadena = {"-o=hi", "5"};
 		SucesionFibo sucesion = new SucesionFibo(cadena);	
 		String valorEsperado = "fibo<5>: 3 2 1 1 0 ";
-		String valorObtenido = sucesion.generarRespuesta();
+//		String valorObtenido = sucesion.generarRespuesta();
+
+		sucesion.generarRespuesta();
+		String valorObtenido = sucesion.getRespuesta();		
 
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}	
@@ -79,8 +90,10 @@ public class TestIntegracion {
 		SucesionFibo sucesion = new SucesionFibo(cadena);	
 		String valorEsperado = "Opciones no validas";
 
-		String valorObtenido = sucesion.generarRespuesta();
-
+//		String valorObtenido = sucesion.generarRespuesta();
+		sucesion.generarRespuesta();
+		String valorObtenido = sucesion.getRespuesta();
+		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 	
@@ -90,8 +103,10 @@ public class TestIntegracion {
 		SucesionFibo sucesion = new SucesionFibo(cadena);	
 		String valorEsperado = "Opciones no validas";
 
-		String valorObtenido = sucesion.generarRespuesta();
-
+//		String valorObtenido = sucesion.generarRespuesta();
+		sucesion.generarRespuesta();
+		String valorObtenido = sucesion.getRespuesta();
+		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 	
