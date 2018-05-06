@@ -1,5 +1,10 @@
 package ar.edu.untref.aydoo;
 
+import static org.junit.Assert.assertEquals;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 import org.junit.Assert;
 
 import org.junit.Test;
@@ -88,5 +93,21 @@ public class TestIntegracion {
 		String valorObtenido = sucesion.generarRespuesta();
 
 		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test
+	public void resultadoDeberiaSerEnHorizontalyIndirectoEnUnArchivoCuandoSeIngresaHI_Y_F() throws Exception {
+		String[] cadena = {"-o=hi", "-f=test1.txt", "5"};
+		SucesionFibo sucesion = new SucesionFibo(cadena);	
+		String valorEsperado = "fibo<5>: 3 2 1 1 0 ";
+
+		sucesion.generarRespuesta();
+		FileReader f = new FileReader("test1.txt");
+	    BufferedReader b = new BufferedReader(f);
+	    String valorObtenido = b.readLine();
+	    
+	    b.close();
+		
+		assertEquals(valorEsperado, valorObtenido);
 	}
 }

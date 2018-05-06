@@ -6,16 +6,19 @@ public class Entrada {
 	private String orientacion;
 	private String direccion;
 	private int numero;
+	private String formatoSalida;
 	
 	public Entrada(String cadenaEntrada[]) {
 		this.cadena = cadenaEntrada;
 		this.orientacion = "h";
 		this.direccion = "d";
+		this.formatoSalida = "";
 	}
 	
 	public void procesarParametros() throws Exception {
 		this.verificarNumero();
 		this.getFormato();
+		this.setFormatoSalida();
 	}
 	
 	private void verificarNumero() throws Exception {
@@ -52,5 +55,19 @@ public class Entrada {
 	
 	public String getDireccion() {
 		return this.direccion;
+	}
+	
+	private void setFormatoSalida() throws Exception {
+		String salida;
+		for(int i = 0; i< this.cadena.length; i++) {
+			salida = this.cadena[i];
+			if(salida.contains("-f=")) {
+				this.formatoSalida = salida;
+			}
+		}
+	}
+	
+	public String getFormatoSalida() {
+		return this.formatoSalida;
 	}
 }

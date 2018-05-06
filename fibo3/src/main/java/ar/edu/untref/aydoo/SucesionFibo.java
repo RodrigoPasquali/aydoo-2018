@@ -7,6 +7,7 @@ public class SucesionFibo {
 	private CalculadorFibo calculador;
 	private Orientacion orientacion;
 	private Direccion direccion;
+	private Salida salida;
 	
 	public SucesionFibo(String[] arg){
 		this.entrada = new Entrada(arg);
@@ -22,8 +23,14 @@ public class SucesionFibo {
 			this.direccion = new DireccionDirecta(listaNumeros, entrada.getDireccion());
 			this.direccion.aplicarDireccion();
 			this.orientacion = new OrientacionHorizontal(listaNumeros, entrada.getOrientacion());
-			
 			respuesta = this.orientacion.aplicarOrientacion();
+			this.salida = new SalidaArchivo(respuesta, entrada.getFormatoSalida());
+			this.salida.aplicarSalida();
+			if(this.entrada.getFormatoSalida().contains("-f=")) {
+				respuesta = "";
+			} else {
+				respuesta = this.salida.getCadenaSalida();
+			}		
 		}	
 		return respuesta;	
 	}
