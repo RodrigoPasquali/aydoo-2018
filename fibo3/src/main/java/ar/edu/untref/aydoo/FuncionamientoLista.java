@@ -1,31 +1,21 @@
 package ar.edu.untref.aydoo;
 
-import java.util.LinkedList;
 import java.util.List;
 
-public class FuncionamientoLista {
+public class FuncionamientoLista extends Funcionamiento{
 	
-	private List<Integer> sucesionFibo;
-	
-	public FuncionamientoLista(){
-		sucesionFibo = new LinkedList<Integer>();
+	public FuncionamientoLista(int numeroSucesiones, String funcionamientoIngresado) {
+		super(numeroSucesiones, funcionamientoIngresado);
+		this.siguienteFuncionamiento = new FuncionamientoSumatoria(numeroSucesiones, funcionamientoIngresado);
 	}
-	
-	public List<Integer> calcularSucecion(int numeroSuceciones){
-		int numero1 = 0;
-		int numero2 = 1;
-		int total = 0;	
-		sucesionFibo.add(numero1);
- 		if(numeroSuceciones >= 1){
- 			numeroSuceciones = numeroSuceciones -1;
- 			sucesionFibo.add(numero2);
- 			for(int i = 1; i < numeroSuceciones; i++ ){
-				total = numero1 + numero2;
-				numero1 = numero2;
-				numero2 = total;
-				sucesionFibo.add(total);
-			}
+
+	@Override
+	public List<Integer> aplicarFuncionamiento() {
+		this.setSiguienteFuncionamiento(this.siguienteFuncionamiento);
+		if(this.funcionamiento.equals("l") || this.funcionamiento.equals("")) {
+			return this.getListaNumeros();
 		}
-		return sucesionFibo;
+		return this.getSiguienteFuncionamiento().aplicarFuncionamiento();
 	}	
+	
 }

@@ -4,15 +4,14 @@ import java.util.List;
 
 public class SucesionFibo {
 	private Entrada entrada;
-	private FuncionamientoLista calculador;
 	private Orientacion orientacion;
 	private Direccion direccion;
 	private Salida salida;
+	private Funcionamiento funcionamiento;
 	private String respuesta;
 	
 	public SucesionFibo(String[] arg){
 		this.entrada = new Entrada(arg);
-		this.calculador = new FuncionamientoLista();
 	}
 
 	public void generarRespuesta() throws Exception{
@@ -20,7 +19,8 @@ public class SucesionFibo {
 		this.entrada.procesarParametros();
 		if(!this.entrada.getDireccion().equals("Opciones no validas")){
 			int cantidadSucesiones = this.entrada.getNumero();
-			List<Integer> listaNumeros = this.calculador.calcularSucecion(cantidadSucesiones);
+			this.funcionamiento = new FuncionamientoLista(cantidadSucesiones, this.entrada.getFuncionamiento());
+			List<Integer> listaNumeros = this.funcionamiento.aplicarFuncionamiento();
 			this.direccion = new DireccionDirecta(listaNumeros, entrada.getDireccion());
 			this.direccion.aplicarDireccion();
 			this.orientacion = new OrientacionHorizontal(listaNumeros, entrada.getOrientacion());

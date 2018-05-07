@@ -14,6 +14,7 @@ public class Entrada {
 		this.orientacion = "h";
 		this.direccion = "d";
 		this.formatoSalida = "";
+		this.funcionamiento = "l";
 	}
 	
 	public void procesarParametros() throws Exception {
@@ -77,7 +78,7 @@ public class Entrada {
 		String funcionamientoIngresado;
 		for(int i = 0; i< this.cadena.length; i++) {
 			funcionamientoIngresado = this.cadena[i];
-			if(funcionamientoIngresado.contains("-f=")) {
+			if(funcionamientoIngresado.contains("-m=")) {
 				this.funcionamiento = funcionamientoIngresado;
 			}
 		}

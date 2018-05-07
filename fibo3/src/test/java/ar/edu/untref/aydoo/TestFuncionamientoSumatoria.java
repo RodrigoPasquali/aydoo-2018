@@ -7,18 +7,32 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import excepciones.ExcepcionFuncionamientoInvalido;
+
 public class TestFuncionamientoSumatoria {
 	
 	@Test
 	public void calcularLaSumatoriaDeLaListaNumerosDeberiaDevolver7() {
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.addAll(Arrays.asList(0, 1, 1, 2, 3));
-		FuncionamientoSumatoria calculador = new FuncionamientoSumatoria();
-		int valorEsperado = 7;
+		Funcionamiento calculador = new FuncionamientoSumatoria(5, "s");
+		List <Integer> valorEsperado = new LinkedList<Integer>();
+		valorEsperado.add(7);
 		
-		int valorObtenido = calculador.calcularSumatoria(listaNumeros);
+		List<Integer> valorObtenido = calculador.aplicarFuncionamiento();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test
+	public void siSeIntroduceComoParametroDeFuncionamiento_z_DeberiaDevolverExcepcion() {
+		Funcionamiento calculador = new FuncionamientoSumatoria(5, "s");
+
+		try {
+			calculador.aplicarFuncionamiento();
+	    }catch (ExcepcionFuncionamientoInvalido e){
+
+	    }	
 	}
 
 }
