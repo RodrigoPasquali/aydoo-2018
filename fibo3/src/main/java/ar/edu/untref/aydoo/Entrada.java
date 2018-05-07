@@ -6,19 +6,25 @@ public class Entrada {
 	private String orientacion;
 	private String direccion;
 	private int numero;
+	private String formatoSalida;
+	private String funcionamiento;
 	
 	public Entrada(String cadenaEntrada[]) {
 		this.cadena = cadenaEntrada;
 		this.orientacion = "h";
 		this.direccion = "d";
+		this.formatoSalida = "";
+		this.funcionamiento = "l";
 	}
 	
 	public void procesarParametros() throws Exception {
-		this.verificarNumero();
-		this.getFormato();
+		this.setNumero();
+		this.setFormato();
+		this.setFormatoSalida();
+		this.setFuncionamiento();
 	}
 	
-	private void verificarNumero() throws Exception {
+	private void setNumero() throws Exception {
 		String argumento;
 		argumento = this.cadena[this.cadena.length-1];
 		try {
@@ -32,7 +38,7 @@ public class Entrada {
 		return this.numero;
 	}
 	
-	private void getFormato() throws Exception {
+	private void setFormato() throws Exception {
 		String formato;
 		for(int i = 0; i< this.cadena.length; i++) {
 			formato = this.cadena[i];
@@ -52,5 +58,33 @@ public class Entrada {
 	
 	public String getDireccion() {
 		return this.direccion;
+	}
+	
+	private void setFormatoSalida() throws Exception {
+		String salida;
+		for(int i = 0; i< this.cadena.length; i++) {
+			salida = this.cadena[i];
+			if(salida.contains("-f=")) {
+				this.formatoSalida = salida;
+			}
+		}
+	}
+	
+	public String getFormatoSalida() {
+		return this.formatoSalida;
+	}
+	
+	public void setFuncionamiento() {
+		String funcionamientoIngresado;
+		for(int i = 0; i< this.cadena.length; i++) {
+			funcionamientoIngresado = this.cadena[i];
+			if(funcionamientoIngresado.contains("-m=")) {
+				this.funcionamiento = funcionamientoIngresado.substring(3);
+			}
+		}
+	}
+	
+	public String getFuncionamiento() {
+		return this.funcionamiento;
 	}
 }
