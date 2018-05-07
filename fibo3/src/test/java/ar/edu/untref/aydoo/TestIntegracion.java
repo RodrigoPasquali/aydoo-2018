@@ -149,4 +149,16 @@ public class TestIntegracion {
 		assertEquals(valorEsperado, valorObtenido);
 	}
 	
+	@Test
+	public void resultadoDeberiaSerEnHorizontal_Indirecto_Lista_FormatoHI_yFuncionalidadL() throws Exception {
+		String[] cadena = {"-o=hi", "-m=l","5"};
+		SucesionFibo sucesion = new SucesionFibo(cadena);	
+		String valorEsperado = "fibo<5>: 3 2 1 1 0 ";
+
+		sucesion.generarRespuesta();
+		String valorObtenido = sucesion.getRespuesta();		
+
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}	
+	
 }
