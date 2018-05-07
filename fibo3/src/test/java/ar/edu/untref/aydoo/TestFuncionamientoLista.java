@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestCalculadorFibo {
+public class TestFuncionamientoLista {
 
 		@Test
 		public void calcularSucesionDe0DeberiaDevolver0(){

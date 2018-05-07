@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestCalculadorSumatoriaFibo {
+public class TestFuncionamientoSumatoria {
 	
 	@Test
 	public void calcularLaSumatoriaDeLaListaNumerosDeberiaDevolver7() {
