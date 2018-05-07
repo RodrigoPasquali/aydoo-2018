@@ -79,7 +79,7 @@ public class Entrada {
 		for(int i = 0; i< this.cadena.length; i++) {
 			funcionamientoIngresado = this.cadena[i];
 			if(funcionamientoIngresado.contains("-m=")) {
-				this.funcionamiento = funcionamientoIngresado;
+				this.funcionamiento = funcionamientoIngresado.substring(3);
 			}
 		}
 	}

@@ -14,8 +14,9 @@ public class FuncionamientoLista extends Funcionamiento{
 		this.setSiguienteFuncionamiento(this.siguienteFuncionamiento);
 		if(this.funcionamiento.equals("l") || this.funcionamiento.equals("")) {
 			return this.getListaNumeros();
+		} else {
+			return this.getSiguienteFuncionamiento().aplicarFuncionamiento();
 		}
-		return this.getSiguienteFuncionamiento().aplicarFuncionamiento();
 	}	
 	
 }

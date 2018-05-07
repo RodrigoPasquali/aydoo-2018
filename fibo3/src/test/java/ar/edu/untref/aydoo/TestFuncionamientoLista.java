@@ -13,9 +13,10 @@ public class TestFuncionamientoLista {
 			List<Integer> valorEsperado = new LinkedList<Integer>();
 			List<Integer> valorObtenido = new LinkedList<Integer>();
 			FuncionamientoLista calculador = new FuncionamientoLista(0, "l");
-			
-			valorObtenido =calculador.aplicarFuncionamiento();;
 			valorEsperado.add(0);
+			
+			calculador.aplicarFuncionamiento();
+			valorObtenido = calculador.getListaNumeros();
 			
 			Assert.assertEquals(valorEsperado, valorObtenido);
 		}
@@ -28,7 +29,8 @@ public class TestFuncionamientoLista {
 			valorEsperado.add(0);
 			valorEsperado.add(1);
 			
-			valorObtenido = calculador.aplicarFuncionamiento();
+			calculador.aplicarFuncionamiento();
+			valorObtenido = calculador.getListaNumeros();
 			
 			Assert.assertEquals(valorEsperado, valorObtenido);
 		}
@@ -44,7 +46,8 @@ public class TestFuncionamientoLista {
 			valorEsperado.add(2);
 			valorEsperado.add(3);
 	
-			valorObtenido = calculador.aplicarFuncionamiento();
+			calculador.aplicarFuncionamiento();
+			valorObtenido = calculador.getListaNumeros();
 			
 			Assert.assertEquals(valorEsperado, valorObtenido);
 		}
@@ -63,8 +66,9 @@ public class TestFuncionamientoLista {
 			valorEsperado.add(8);
 			valorEsperado.add(13);
 
-			valorObtenido = calculador.aplicarFuncionamiento();
-
+			calculador.aplicarFuncionamiento();
+			valorObtenido = calculador.getListaNumeros();
+			
 			Assert.assertEquals(valorEsperado, valorObtenido);
 		}
 		
@@ -77,8 +81,9 @@ public class TestFuncionamientoLista {
 			valorEsperado.add(1);
 			valorEsperado.add(1);
 
-			valorObtenido = calculador.aplicarFuncionamiento();
-
+			calculador.aplicarFuncionamiento();
+			valorObtenido = calculador.getListaNumeros();
+			
 			Assert.assertEquals(valorEsperado, valorObtenido);
 		}
 }

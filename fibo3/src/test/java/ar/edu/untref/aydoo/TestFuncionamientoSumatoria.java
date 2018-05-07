@@ -19,7 +19,8 @@ public class TestFuncionamientoSumatoria {
 		List <Integer> valorEsperado = new LinkedList<Integer>();
 		valorEsperado.add(7);
 		
-		List<Integer> valorObtenido = calculador.aplicarFuncionamiento();
+		calculador.aplicarFuncionamiento();
+		List<Integer> valorObtenido = calculador.getListaNumeros();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}

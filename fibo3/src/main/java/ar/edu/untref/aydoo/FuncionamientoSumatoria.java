@@ -11,7 +11,6 @@ public class FuncionamientoSumatoria extends Funcionamiento {
 		super(numeroSucesiones, funcionamientoIngresado);
 	}
 
-
 	@Override
 	public List<Integer> aplicarFuncionamiento() {
 		if(this.funcionamiento.equals("s")) {
@@ -22,7 +21,7 @@ public class FuncionamientoSumatoria extends Funcionamiento {
 		}
 	}	
 	
-	public void calcularSumatoria(List<Integer> listaDeNumeros){
+	private void calcularSumatoria(List<Integer> listaDeNumeros){
 		int total = 0;
 		List<Integer> sumatoria = new LinkedList<Integer>();
 		for(int i = 0; i < listaDeNumeros.size(); i++) {
@@ -33,3 +32,4 @@ public class FuncionamientoSumatoria extends Funcionamiento {
 	}
 	
 }
+
