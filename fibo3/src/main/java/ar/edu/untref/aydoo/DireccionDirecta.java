@@ -3,6 +3,7 @@ package ar.edu.untref.aydoo;
 import java.util.List;
 
 public class DireccionDirecta extends Direccion{
+	
 	private Direccion direccionSiguiente;
 	
 	public DireccionDirecta(List<Integer> listaNumerosIngresada, String direccionIngresada) {
@@ -19,4 +20,5 @@ public class DireccionDirecta extends Direccion{
 			return this.listaNumeros;
 		}
 	}
+	
 }
