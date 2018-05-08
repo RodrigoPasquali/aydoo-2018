@@ -38,4 +38,23 @@ public class Paso {
 		}
 	}
 
+	public Partido getPartidoConMasVotosANivelNacional() {
+		Partido partidoGanador = this.votos.get(0).getCandidato().getPartidoAfiliado();
+		this.contarVotosANivelNacionalDePartidos();
+		for(int i = 1; i < this.votos.size(); i++) {
+			Partido partidoActual = this.votos.get(i).getCandidato().getPartidoAfiliado();
+			if(partidoGanador.getVotos() < partidoActual.getVotos()) {
+				partidoGanador = partidoActual;
+			}	
+		}
+		return partidoGanador;
+	}
+
+	private void contarVotosANivelNacionalDePartidos() {
+		for(int i = 0; i < this.votos.size(); i++) {
+			Voto votoActual = this.votos.get(i);
+			votoActual.getCandidato().getPartidoAfiliado().sumarVoto();
+		}
+	}
+	
 }
