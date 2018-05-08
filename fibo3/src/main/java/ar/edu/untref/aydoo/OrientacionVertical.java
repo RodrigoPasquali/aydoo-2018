@@ -4,8 +4,8 @@ import java.util.List;
 
 public class OrientacionVertical extends Orientacion {
 
-	public OrientacionVertical(List<Integer> listaNumeros, String orientacion) {
-		super(listaNumeros, orientacion);
+	public OrientacionVertical(List<Integer> listaNumeros, String orientacion, String formatoSalida, int numeroSucesiones) {
+		super(listaNumeros, orientacion, formatoSalida, numeroSucesiones);
 	}
 
 	@Override

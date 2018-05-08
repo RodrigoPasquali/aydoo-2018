@@ -125,7 +125,7 @@ public class TestIntegracion {
 	public void resultadoDeberiaSerSumatoriaDe5CuandoSeIngresaFuncionamiento_s() throws Exception {
 		String[] cadena = {"-o=hi", "-m=s", "5"};
 		SucesionFibo sucesion = new SucesionFibo(cadena);	
-		String valorEsperado = "fibo<5>s: 7";
+		String valorEsperado = "fibo<5>s: 7 ";
 
 		sucesion.generarRespuesta();
 		String valorObtenido = sucesion.getRespuesta();		
@@ -137,7 +137,7 @@ public class TestIntegracion {
 	public void resultadoDeberiaSerSumatoriaDe5CuandoSeIngresaFuncionamientoS_Y_SalidaF() throws Exception {
 		String[] cadena = {"-o=hi", "-f=target/test1.txt", "-m=s", "5"};
 		SucesionFibo sucesion = new SucesionFibo(cadena);	
-		String valorEsperado = "fibo<5>s: 7";
+		String valorEsperado = "fibo<5>s: 7 ";
 
 		sucesion.generarRespuesta();
 		FileReader f = new FileReader("target/test1.txt");

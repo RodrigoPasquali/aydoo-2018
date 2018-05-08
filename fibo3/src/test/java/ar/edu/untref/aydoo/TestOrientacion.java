@@ -16,7 +16,7 @@ public class TestOrientacion {
 		listaNumeros.add(1);
 		listaNumeros.add(2);
 		listaNumeros.add(5);
-		Orientacion orientacionNoValida = new OrientacionHorizontal(listaNumeros, orientacionIngresada);
+		Orientacion orientacionNoValida = new OrientacionHorizontal(listaNumeros, orientacionIngresada, "", 0);
 		String valorEsperado = "Opciones no validas";
 		
 		String valorObtenido = orientacionNoValida.aplicarOrientacion();
@@ -33,7 +33,7 @@ public class TestOrientacion {
 		listaNumeros.add(2, 1);
 		listaNumeros.add(3, 2);
 		listaNumeros.add(4, 3);
-		Orientacion orientacionNoValida = new OrientacionHorizontal(listaNumeros, orientacionIngresada);
+		Orientacion orientacionNoValida = new OrientacionHorizontal(listaNumeros, orientacionIngresada, "", 5);
 		String valorEsperado = "fibo<5>: 0 1 1 2 3 ";
 		
 		String valorObtenido = orientacionNoValida.aplicarOrientacion();
@@ -50,7 +50,7 @@ public class TestOrientacion {
 		listaNumeros.add(2, 1);
 		listaNumeros.add(3, 2);
 		listaNumeros.add(4, 3);
-		Orientacion orientacionNoValida = new OrientacionHorizontal(listaNumeros, orientacionIngresada);
+		Orientacion orientacionNoValida = new OrientacionHorizontal(listaNumeros, orientacionIngresada, "", 5);
 		String valorEsperado = "fibo<5>: 0 1 1 2 3 ";
 		
 		String valorObtenido = orientacionNoValida.aplicarOrientacion();
@@ -67,7 +67,7 @@ public class TestOrientacion {
 		listaNumeros.add(2, 1);
 		listaNumeros.add(3, 2);
 		listaNumeros.add(4, 3);
-		Orientacion orientacionNoValida = new OrientacionHorizontal(listaNumeros, orientacionIngresada);
+		Orientacion orientacionNoValida = new OrientacionHorizontal(listaNumeros, orientacionIngresada, "", 5);
 		String valorEsperado = "fibo<5>: " + "\r\n"
 									+ "0" + "\r\n"
 									+ "1" + "\r\n"

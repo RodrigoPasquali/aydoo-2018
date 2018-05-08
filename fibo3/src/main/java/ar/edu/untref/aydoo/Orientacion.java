@@ -8,10 +8,10 @@ public abstract class Orientacion {
 	protected List<Integer> listaNumeros;
 	protected String cadenaSalida;
 	
-	public Orientacion(List<Integer> listaNumerosIngresada, String orientacionIngresada) {
+	public Orientacion(List<Integer> listaNumerosIngresada, String orientacionIngresada, String formatoSalida, int numeroSucesiones) {
 		this.orientacion = orientacionIngresada;
 		this.listaNumeros = listaNumerosIngresada;
-		this.cadenaSalida = "fibo<" +listaNumerosIngresada.size() + ">: ";
+		this.cadenaSalida = this.seleccionarCadenaSalida(formatoSalida, listaNumerosIngresada, numeroSucesiones);
 	}
 	
 	public abstract String aplicarOrientacion();
@@ -22,5 +22,15 @@ public abstract class Orientacion {
 	
 	protected Orientacion getSiguienteOrientacion() {
 		return this.orientacionSiguiente;
+	}
+	
+	private String seleccionarCadenaSalida(String funconamientoSeleccionado, List<Integer> listaNumeros, int numeroSucesiones) {
+		String cadena;
+		if(funconamientoSeleccionado.contains("s")) {
+			cadena = "fibo<" + numeroSucesiones + ">s: ";
+		} else {
+			cadena = "fibo<" + numeroSucesiones + ">: ";
+		}
+		return cadena;
 	}
 }

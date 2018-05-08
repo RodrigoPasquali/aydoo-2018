@@ -31,5 +31,9 @@ public class FuncionamientoSumatoria extends Funcionamiento {
 		this.setListaNumeros(sumatoria);
 	}
 	
+	public List<Integer> getListaNumeros() {
+		return this.listaNumeros;
+	}
+	
 }
 

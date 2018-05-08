@@ -5,9 +5,9 @@ import java.util.List;
 public class OrientacionHorizontal extends Orientacion{
 	private Orientacion orientacionSiguiente;
 	
-	public OrientacionHorizontal(List<Integer> listaNumerosIngresada, String orientacionIngresada) {
-		super(listaNumerosIngresada, orientacionIngresada);
-		this.orientacionSiguiente = new OrientacionVertical(listaNumerosIngresada, orientacionIngresada);
+	public OrientacionHorizontal(List<Integer> listaNumerosIngresada, String orientacionIngresada, String formatoSalida, int numeroSucesiones) {
+		super(listaNumerosIngresada, orientacionIngresada, formatoSalida, numeroSucesiones);
+		this.orientacionSiguiente = new OrientacionVertical(listaNumerosIngresada, orientacionIngresada, formatoSalida, numeroSucesiones);
 	}
 
 	@Override

@@ -4,6 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class SalidaArchivo extends Salida{
+	
+	String directorio;
 
 	public SalidaArchivo(String cadenaSalida, String salidaSolicitadaIngresada) {
 		super(cadenaSalida, salidaSolicitadaIngresada);
@@ -15,7 +17,8 @@ public class SalidaArchivo extends Salida{
 		this.setSiguienteSalida(this.salidaSiguiente);
 		String formatoSalida = this.getFormatoSalida();
 		if(formatoSalida.contains("-f=")) {
-			String directorio  = formatoSalida.substring(3, formatoSalida.length());
+			this.directorio  = this.getDirectorio(this.getFormatoSalida());
+			this.imprimirCadenaPorConsola(this.getCadenaSalida(), this.directorio);
 			this.escribirArchivo(directorio, this.getCadenaSalida());
 		} else {
 			this.getSiguienteSalida().aplicarSalida();
@@ -29,5 +32,14 @@ public class SalidaArchivo extends Salida{
 	    fichero.close();
 	}
 	
+	private String getDirectorio(String cadena) {
+		return cadena.substring(3, cadena.length());
+	}
+	
+	private String imprimirCadenaPorConsola(String cadenaSalida, String directorio) {
+		String cadena = cadenaSalida.substring(0, 7) + " guardado en " + directorio;
+		System.out.println(cadena);
+		return cadena;
+	}
 
 }
