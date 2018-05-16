@@ -1,4 +1,4 @@
-﻿Informe sobre Fibo4
+Informe sobre Fibo4
 
 -CUMPLIMIENTO DE CONSIGNAS
 El programa cumple con las funcionalidades requeridas de manera correcta.
@@ -47,6 +47,8 @@ nuevamente una instancia. Para ello seria mejor que Fibonnaci se extendiera de u
 se agregan nuevas funciones, deberian implementar esta y no se deberia realizar cambios en la clase ManejadorFibonacci.
 
 -POSIBLES SMELLS
+.En primer momento el codigo me parecio poco claro debido a la gran cantidad de metodos que existen por clase, especialmente en la clase ProcesadorDeParametros. Luego a 
+medida que se iba analizando el codigo tomaba mas sentido, pero finalmente no se logro comprender totalmente.
 .Para los distintas opciones de formato, sentido, orientacion, etc,  la logica para aplicar uno u otro es es a traves de booleanos en la clase ProcesadorDeParametros,
 la pregunta es que  sucederia si el dia de mañana por ejemplo se agrega un nuevo comportamiento, como puede ser una nueva funcionalidad que reste numeros, tendria
 que agregar un booleano por cada funcionalida ?
@@ -107,4 +109,14 @@ Esto podria solucionarlo si se creara un solo metodo, el cual podria ser :
 Ademas la firma del metodo habla de definir si la salida es horizontal o vertical, pero, ademas de definir orientacion, tambien define si debe ejecutar orden inverso,
 por lo que el metodo esta realizando mas de una sola responsabilidad, por lo que estaria violando la Responsabilidad Unica.
 
+***************************************************************************************************************************
+
+*Agregar nuevas funcionalidades*
+-No se pudo realizar el agregada de las nuevas funcionalidades ( impresion de numeros pares y impresion progresiva ). 
+Esto es debido a que en un primer momento se intento proceder con el actual codigo, pero a medida que iba agregando codigo nuevo surgia el problema que 
+se tenia que  tocar muchos metodos de muchas clases, agregando mas "else" en los if existentes (algo que no esta bien, tendria que aplicar algun tipo de patron para solucionarlo)
+lo que me requerio mucho tiempo y no se pudo lograr el comportamiento deseado. Entonces se decidio realizar refactor del codigo para tener una mejor comprension, 
+pero ya se habia utilizado gran parte del tiempo disponible tratando de unir el codigo nuevo con el existe, por lo que no se pudo finalizar con el mismo.
+Como conclusion al no cumplimiento de la consigna, se lo atribuyo mayoritariamente al mal analisis de la situacion, en el que se penso primeramente que 
+agregar las nuevas funcionalidades resultaria mas sencillo de lo que finalemente fue. Y cuando se decidio que deberia realizarce refactor no se poseia el tiempo necesario.
 	
