@@ -75,4 +75,5 @@ public class ProcesadorDeParametrosTest {
         miProcesador.recibirParametros("-m=lx");
         Assert.assertFalse(miProcesador.puedoContinuar());
     }
+
 }

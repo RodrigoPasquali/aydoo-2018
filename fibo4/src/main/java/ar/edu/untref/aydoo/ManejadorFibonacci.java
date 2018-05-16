@@ -1,5 +1,4 @@
-package main.java.ar.edu.untref.aydoo;
-
+package ar.edu.untref.aydoo;
 
 public class ManejadorFibonacci {
     private final ProcesadorDeParametros miProcesador;
