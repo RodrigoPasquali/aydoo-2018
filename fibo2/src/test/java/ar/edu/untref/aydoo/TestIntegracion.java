@@ -69,25 +69,24 @@ public class TestIntegracion {
 	}	
 
 	@Test
-	public void resultadoDeberiaArrojarExcepcionCuadnoSeIngresaHK() throws Exception {
+	public void deberiaDevolverOpcionesNoValidasCuandoSeIngresa_K_ComoDireccion() throws Exception {
 		String[] cadena = {"-o=hk", "5"};
 		SucesionFibo sucesion = new SucesionFibo(cadena);	
+		String valorEsperado = "Opciones no validas";
 
-		String valorEsperado = "Opcion no valida";
 		String valorObtenido = sucesion.generarRespuesta();
 
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 	
 	@Test
-	public void resultadoDeberiaArrojarExcepcionCuadnoSeIngresaUD() throws Exception {
+	public void deberiaDevolverOpcionesNovalidasCuandoSeIngresa_U_ComoOrientacion() throws Exception {
 		String[] cadena = {"-o=ud", "5"};
 		SucesionFibo sucesion = new SucesionFibo(cadena);	
-		String valorEsperado = "Opcion no valida";
-		
+		String valorEsperado = "Opciones no validas";
+
 		String valorObtenido = sucesion.generarRespuesta();
 
-		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 }
