@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import excepciones.ExcepcionDiasIncorrectos;
+import excepciones.ExcepcionInteresIncorrecto;
 import excepciones.ExcepcionMontoIncorrecto;
 
 public class TestPlazoFijoTradicional {
@@ -57,6 +58,28 @@ public class TestPlazoFijoTradicional {
 		try {
 			plazoFijoTradicional.calcularGanancia(50, 25, -1);
 		}catch (ExcepcionMontoIncorrecto e){
+
+	    }
+	}
+	
+	@Test
+	public void realizarUnPlazoFijoTradicionalDeInteres0DeberiaLanzarExcepcionInteresIncorrecto() {	  
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional();
+		
+		try {
+			plazoFijoTradicional.calcularGanancia(50, 0, 1000);
+		}catch (ExcepcionInteresIncorrecto e){
+
+	    }
+	}
+	
+	@Test
+	public void realizarUnPlazoFijoTradicionalDeInteres1NegativoDeberiaLanzarExcepcionInteresIncorrecto() {	  
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional();
+		
+		try {
+			plazoFijoTradicional.calcularGanancia(50, -1, 1000);
+		}catch (ExcepcionInteresIncorrecto e){
 
 	    }
 	}

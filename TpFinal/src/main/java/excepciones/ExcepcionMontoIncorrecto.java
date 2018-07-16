@@ -6,5 +6,4 @@ public class ExcepcionMontoIncorrecto extends RuntimeException {
     public ExcepcionMontoIncorrecto() {
         super(mensajeMontoIncorrecto);
     }
-
 }

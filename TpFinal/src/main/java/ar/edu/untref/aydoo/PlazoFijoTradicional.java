@@ -1,6 +1,7 @@
 package ar.edu.untref.aydoo;
 
 import excepciones.ExcepcionDiasIncorrectos;
+import excepciones.ExcepcionInteresIncorrecto;
 import excepciones.ExcepcionMontoIncorrecto;
 
 public class PlazoFijoTradicional {
@@ -12,6 +13,9 @@ public class PlazoFijoTradicional {
 		}
 		if(monto <= 0) {
 			throw new ExcepcionMontoIncorrecto();
+		}
+		if(interes <= 0) {
+			throw new ExcepcionInteresIncorrecto();
 		}
 		gananciaObtenida = (monto * interes) / 100;
 		return gananciaObtenida;
