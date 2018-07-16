@@ -7,8 +7,8 @@ public class Inversor {
 		this.gananciaObtenida = 0;
 	}
 	
-	public void realizarInversion(PlazoFijoTradicional inversion, int plazo, int interes, int monto) {
-		this.gananciaObtenida = inversion.calcularGanancia(plazo, interes, monto);
+	public void realizarInversion(Inversion inversion) {
+		this.gananciaObtenida = inversion.calcularGanancia();
 	}
 	
 	public double getGanancias() {
