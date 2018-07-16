@@ -6,6 +6,7 @@ import org.junit.Test;
 import excepciones.ExcepcionDiasIncorrectos;
 import excepciones.ExcepcionInteresIncorrecto;
 import excepciones.ExcepcionMontoIncorrecto;
+import excepciones.ExcepcionPlazoRealMayorAInicial;
 
 public class TestPlazoFijoPrecancelable {	
 	@Test
@@ -93,4 +94,27 @@ public class TestPlazoFijoPrecancelable {
 
 	    }
 	}
+	
+	@Test
+	public void realizarUnPlazoFijoPrecancelableDe30DiasInicialesY60DiasRealesDeberiaLanzarExcepcionPlazoRealMayorAInicial() {	  
+		PlazoFijoPrecancelable plazoFijoPrecancelable = new PlazoFijoPrecancelable();
+		
+		try {
+			plazoFijoPrecancelable.calcularGanancia(30, 60, 25, 50000);
+		}catch (ExcepcionPlazoRealMayorAInicial e){
+
+	    }
+	}
+
+	@Test
+	public void realizarUnPlazoFijoPrecancelableDe1NegativoDiasRealesDeberiaLanzarExcepcionDiasIncorrectos() {	  
+		PlazoFijoPrecancelable plazoFijoPrecancelable = new PlazoFijoPrecancelable();
+		
+		try {
+			plazoFijoPrecancelable.calcularGanancia(30, -1, 25, 50000);
+		}catch (ExcepcionDiasIncorrectos e){
+
+	    }
+	}
+
 }

@@ -3,6 +3,7 @@ package ar.edu.untref.aydoo;
 import excepciones.ExcepcionDiasIncorrectos;
 import excepciones.ExcepcionInteresIncorrecto;
 import excepciones.ExcepcionMontoIncorrecto;
+import excepciones.ExcepcionPlazoRealMayorAInicial;
 
 public class PlazoFijoPrecancelable {
 	
@@ -20,6 +21,10 @@ public class PlazoFijoPrecancelable {
 		if(interes <= 0) {
 			throw new ExcepcionInteresIncorrecto();
 		}
+		if(plazoReal > plazoInicial) {
+			throw new ExcepcionPlazoRealMayorAInicial();
+		}
+
 		
 		gananciaObtenida = (monto * interes) / 100; 
 		if(plazoInicial < plazoReal) {
