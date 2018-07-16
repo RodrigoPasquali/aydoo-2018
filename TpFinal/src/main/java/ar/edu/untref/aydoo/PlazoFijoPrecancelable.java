@@ -5,28 +5,39 @@ import excepciones.ExcepcionInteresIncorrecto;
 import excepciones.ExcepcionMontoIncorrecto;
 import excepciones.ExcepcionPlazoRealMayorAInicial;
 
-public class PlazoFijoPrecancelable {	
-	public double calcularGanancia(int plazoInicial, int plazoReal, double interes, double monto) {
+public class PlazoFijoPrecancelable extends Inversion{	
+	private int plazoInicial;
+	private int plazoReal;
+	private double interes;
+	private double monto;
+
+	public PlazoFijoPrecancelable(int plazoInicialIngresado, int plazoRealIngresado, double interesIngresado, double montoIngresado) {
+		this.plazoInicial = plazoInicialIngresado;
+		this.plazoReal = plazoRealIngresado;
+		this.interes = interesIngresado;
+		this.monto = montoIngresado;
+	}
+	
+	public double calcularGanancia() {
 		double gananciaObtenida = 0;
-		if(plazoInicial < 30) {
+		if(this.plazoInicial < 30) {
 			throw new ExcepcionDiasIncorrectos();
 		}
-		if(plazoReal < 0) {
+		if(this.plazoReal < 0) {
 			throw new ExcepcionDiasIncorrectos();
 		}
-		if(monto <= 0) {
+		if(this.monto <= 0) {
 			throw new ExcepcionMontoIncorrecto();
 		}
-		if(interes <= 0) {
+		if(this.interes <= 0) {
 			throw new ExcepcionInteresIncorrecto();
 		}
-		if(plazoReal > plazoInicial) {
+		if(this.plazoReal > plazoInicial) {
 			throw new ExcepcionPlazoRealMayorAInicial();
 		}
-
 		
-		gananciaObtenida = (monto * interes) / 100; 
-		if(plazoInicial < plazoReal) {
+		gananciaObtenida = (this.monto * this.interes) / 100; 
+		if(this.plazoInicial < this.plazoReal) {
 			gananciaObtenida = gananciaObtenida/2;
 		}
 		return gananciaObtenida;
