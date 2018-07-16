@@ -10,7 +10,7 @@ public class TestIntegral {
 	public void realizarUnPlazoFijoTradicionalDeberiaDevolver100DeGanancia() {	  
 		Inversor jorge = new Inversor();
 		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(90,10, 1000);
-		double valorEsperado = 100;
+		double valorEsperado = 24.65;
 		
 		jorge.realizarInversion(plazoFijoTradicional);		
 		double valorObtenido = jorge.getGanancias();
