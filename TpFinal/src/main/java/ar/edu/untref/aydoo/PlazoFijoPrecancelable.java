@@ -5,8 +5,7 @@ import excepciones.ExcepcionInteresIncorrecto;
 import excepciones.ExcepcionMontoIncorrecto;
 import excepciones.ExcepcionPlazoRealMayorAInicial;
 
-public class PlazoFijoPrecancelable {
-	
+public class PlazoFijoPrecancelable {	
 	public double calcularGanancia(int plazoInicial, int plazoReal, double interes, double monto) {
 		double gananciaObtenida = 0;
 		if(plazoInicial < 30) {
@@ -32,5 +31,4 @@ public class PlazoFijoPrecancelable {
 		}
 		return gananciaObtenida;
 	}
-
 }
