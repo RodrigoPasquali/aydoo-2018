@@ -14,5 +14,14 @@ public class TestPlazoFijoPrecancelable {
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 
+	@Test
+	public void realizarUnPlazoFijoPrecancelableDeberiaDevolver6250DeGananciaCuandoElMontoEs5000ElInteresEs25PlazoReal30() {	  
+		PlazoFijoPrecancelable plazoFijoPrecancelable = new PlazoFijoPrecancelable();
+		double valorEsperado = 12500;
+		
+		double valorObtenido = plazoFijoPrecancelable.calcularGanancia(100, 30, 25, 50000);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
 
 }
