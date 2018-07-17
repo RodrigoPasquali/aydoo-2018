@@ -6,23 +6,45 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestImpuestoIndividual {
+public class TestImpuestosEmpresa {
 	@Test
 	public void elImpuestoAUnaGananciaDe100DeberiaSer0() {	  
 		double ganancia = 100;
-		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
 		double valorEsperado = 0;
 		
 		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
-	
+
 	@Test
-	public void elImpuestoAUnaGananciaDe49999DeberiaSer0() {	  
+	public void elImpuestoAUnaGananciaDe19999DeberiaSer0() {	  
+		double ganancia = 19999;
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
+		double valorEsperado = 0;
+		
+		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
+
+	@Test
+	public void elImpuestoAUnaGananciaDe20000DeberiaSer1000() {	  
+		double ganancia = 20000;
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
+		double valorEsperado = 1000;
+		
+		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
+
+	@Test
+	public void elImpuestoAUnaGananciaDe49999DeberiaSer2500() {	  
 		double ganancia = 49999;
-		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
-		double valorEsperado = 0;
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
+		double valorEsperado = 2500;
 		
 		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
 		
@@ -30,31 +52,9 @@ public class TestImpuestoIndividual {
 	}
 
 	@Test
-	public void elImpuestoAUnaGananciaDe50001DeberiaSer2500() {	  
-		double ganancia = 50001;
-		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
-		double valorEsperado = 2500;
-		
-		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
-		
-		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
-	}
-	
-	@Test
-	public void elImpuestoAUnaGananciaDe50000DeberiaSer2500() {	  
+	public void elImpuestoAUnaGananciaDe50000DeberiaSer5000() {	  
 		double ganancia = 50000;
-		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
-		double valorEsperado = 2500;
-		
-		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
-		
-		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
-	}
-
-	@Test
-	public void elImpuestoAUnaGananciaDe99999DeberiaSer5000() {	  
-		double ganancia = 99999;
-		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
 		double valorEsperado = 5000;
 		
 		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
@@ -63,10 +63,32 @@ public class TestImpuestoIndividual {
 	}
 
 	@Test
-	public void elImpuestoAUnaGananciaDe100000DeberiaSer8000() {	  
+	public void elImpuestoAUnaGananciaDe50001DeberiaSer5000() {	  
+		double ganancia = 50001;
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
+		double valorEsperado = 5000.1;
+		
+		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
+	}	
+
+	@Test
+	public void elImpuestoAUnaGananciaDe99999DeberiaSer9999() {	  
+		double ganancia = 99999;
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
+		double valorEsperado = 10000;
+		
+		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
+
+	@Test
+	public void elImpuestoAUnaGananciaDe100000DeberiaSer15000() {	  
 		double ganancia = 100000;
-		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
-		double valorEsperado = 8000;
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
+		double valorEsperado = 15000;
 		
 		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
 		
@@ -76,8 +98,8 @@ public class TestImpuestoIndividual {
 	@Test
 	public void elImpuestoAUnaGananciaDe499999DeberiaSer4000() {	  
 		double ganancia = 499999;
-		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
-		double valorEsperado = 40000;
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
+		double valorEsperado = 74999.8;
 		
 		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
 		
@@ -85,10 +107,10 @@ public class TestImpuestoIndividual {
 	}
 
 	@Test
-	public void elImpuestoAUnaGananciaDe500000DeberiaSer50000() {	  
+	public void elImpuestoAUnaGananciaDe500000DeberiaSer100000() {	  
 		double ganancia = 500000;
-		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
-		double valorEsperado = 50000;
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
+		double valorEsperado = 100000;
 		
 		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
 		
@@ -98,17 +120,17 @@ public class TestImpuestoIndividual {
 	@Test
 	public void elImpuestoAUnaGananciaDe500001DeberiaSer50000() {	  
 		double ganancia = 500001;
-		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
-		double valorEsperado = 50000.1;
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
+		double valorEsperado = 100000.2;
 		
 		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
-	
+
 	@Test
 	public void deberiaPoderModificarseLaTablaDeImpuestos() {	  
-		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
+		ImpuestosEmpresa impuesto = new ImpuestosEmpresa();
 		Map<Integer[], Double> tablaImpuestos = new HashMap<Integer[], Double>();
 		Integer[] limite1 = {0, 1000};
 		Integer[] limite2 = {1000, 2000};
