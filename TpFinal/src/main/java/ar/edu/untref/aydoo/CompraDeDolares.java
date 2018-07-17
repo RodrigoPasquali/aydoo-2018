@@ -8,23 +8,26 @@ public class CompraDeDolares extends Inversion{
 	private double cotizacionInicial;
 	private double cotizacionFinal;
 
-	public CompraDeDolares(double montoPesosInicialIngresado, double cotizacionInicialIngresado, double cotizacionFinalIngresado) {
-		this.montoPesosInicial = montoPesosInicialIngresado;
-		this.cotizacionInicial = cotizacionInicialIngresado;
-		this.cotizacionFinal = cotizacionFinalIngresado;
+	public CompraDeDolares(String inversionIngresada, double[] parametrosIngresados) {
+		super(inversionIngresada, parametrosIngresados);
+		this.montoPesosInicial = parametrosIngresados[0];
+		this.cotizacionInicial = parametrosIngresados[1];
+		this.cotizacionFinal = parametrosIngresados[2];
 	}
 	
-	public double calcularGanancia() {
-		double gananciaObtenida = 0;	
-		if(this.montoPesosInicial < this.cotizacionInicial) {
-			throw new ExcepcionMontoMenorACotizacionDolar();
+	public void calcularGanancia() {
+		if(this.getInversion().equals("dol")) {
+			double gananciaObtenida = 0;	
+			if(this.montoPesosInicial < this.cotizacionInicial) {
+				throw new ExcepcionMontoMenorACotizacionDolar();
+			}
+			if(this.cotizacionInicial <= 0 || this.cotizacionFinal <= 0) {
+				throw new ExcepcionCotizacionDolarIncorrecta();
+			}
+			double montoDolares = this.montoPesosInicial / this.cotizacionInicial;
+			double montoPesosFinal = montoDolares * this.cotizacionFinal;
+			gananciaObtenida = montoPesosFinal - montoPesosInicial;
+			this.setGanancia(gananciaObtenida);			
 		}
-		if(this.cotizacionInicial <= 0 || this.cotizacionFinal <= 0) {
-			throw new ExcepcionCotizacionDolarIncorrecta();
-		}
-		double montoDolares = this.montoPesosInicial / this.cotizacionInicial;
-		double montoPesosFinal = montoDolares * this.cotizacionFinal;
-		gananciaObtenida = montoPesosFinal - montoPesosInicial;
-		return gananciaObtenida;
 	}
 }
