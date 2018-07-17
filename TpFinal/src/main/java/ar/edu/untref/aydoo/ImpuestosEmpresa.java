@@ -3,13 +3,13 @@ package ar.edu.untref.aydoo;
 import java.util.HashMap;
 import java.util.Map;
 
-import excepciones.ExcepcionUsuarioNoValido;
-
 public class ImpuestosEmpresa extends Impuesto{
 	private Map<Integer[], Double> tablaImpuestos;
 
 	public ImpuestosEmpresa(String impuestoIngresado) {
 		super(impuestoIngresado);
+		ImpuestoNoValido impuestoEmpresa = new ImpuestoNoValido(impuestoIngresado);
+		this.setImpuestoSiguiente(impuestoEmpresa);
 	}
 	
 	public double aplicarImpuesto(double ganancia) {
@@ -25,7 +25,7 @@ public class ImpuestosEmpresa extends Impuesto{
 			}
 			return impuestoAPagar;			
 		} else {
-			throw new ExcepcionUsuarioNoValido();
+			return this.getImpuestoSiguiente().aplicarImpuesto(ganancia);
 		}
 	}
 	
