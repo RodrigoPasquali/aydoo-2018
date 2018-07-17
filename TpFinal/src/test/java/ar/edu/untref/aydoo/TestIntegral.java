@@ -3,15 +3,14 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
-
 public class TestIntegral {
-
-	/*
+	
 	@Test
 	public void realizarUnPlazoFijoTradicionalDeberiaDevolver100DeGanancia() {	  
 		Inversor jorge = new Inversor();
-		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional();
-		plazoFijoTradicional.agregarCondiciones(90,10, 1000);
+		String tipoInversion = "pft";
+		double[] parametros = {90,10, 1000};
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
 		double valorEsperado = 24.65;
 		
 		jorge.realizarInversion(plazoFijoTradicional);		
@@ -19,6 +18,4 @@ public class TestIntegral {
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
-	
-*/
 }

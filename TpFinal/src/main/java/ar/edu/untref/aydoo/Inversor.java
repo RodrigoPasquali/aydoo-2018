@@ -8,7 +8,8 @@ public class Inversor {
 	}
 	
 	public void realizarInversion(Inversion inversion) {
-	//	this.gananciaObtenida = inversion.calcularGanancia();
+		inversion.calcularGanancia();
+		this.gananciaObtenida = inversion.getGanancia();
 	}
 	
 	public double getGanancias() {
