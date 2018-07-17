@@ -17,8 +17,6 @@ public class PlazoFijoPrecancelable extends Inversion{
 		this.plazoReal = parametrosIngresados[1];
 		this.interes = parametrosIngresados[2];
 		this.monto = parametrosIngresados[3];
-		CompraDeDolares compraDolares = new CompraDeDolares(inversionIngresada, parametrosIngresados);
-		this.setInversionSiguiente(compraDolares); 
 	}
 	
 	public void calcularGanancia() {
@@ -45,6 +43,10 @@ public class PlazoFijoPrecancelable extends Inversion{
 				gananciaObtenida = gananciaObtenida/2;
 			}
 			this.setGanancia(gananciaObtenida);
+		} else {
+			CompraDeDolares compraDolares = new CompraDeDolares(this.getInversion(), this.getParametrosEntrada());
+			this.setInversionSiguiente(compraDolares); 
+			this.getInversionSiguiente().calcularGanancia();
 		}
 	}
 }

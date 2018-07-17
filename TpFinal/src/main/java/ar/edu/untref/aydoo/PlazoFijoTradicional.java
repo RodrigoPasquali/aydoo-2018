@@ -14,8 +14,6 @@ public class PlazoFijoTradicional extends Inversion{
 		this.plazo = parametrosIngresados[0];
 		this.interes = parametrosIngresados[1];
 		this.monto = parametrosIngresados[2];
-		PlazoFijoPrecancelable plazoFijo = new PlazoFijoPrecancelable(inversionIngresada, parametrosIngresados);
-		this.setInversionSiguiente(plazoFijo); 
 	}
 
 	@Override
@@ -36,7 +34,9 @@ public class PlazoFijoTradicional extends Inversion{
 			gananciaObtenida = ((this.monto * this.interes) / 100) * porcentajeEnDias;
 			this.setGanancia(gananciaObtenida);
 		} else {
-			//this.inversionSiguiente.calcularGanancia();
+			PlazoFijoPrecancelable plazoFijo = new PlazoFijoPrecancelable(this.getInversion(), this.getParametrosEntrada());
+			this.setInversionSiguiente(plazoFijo); 
+			this.getInversionSiguiente().calcularGanancia();
 		}
 	}
 }

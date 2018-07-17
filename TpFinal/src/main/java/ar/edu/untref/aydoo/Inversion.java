@@ -16,6 +16,10 @@ public abstract class Inversion {
 		return inversion;
 	}
 	
+	public double[] getParametrosEntrada() {
+		return this.parametros;
+	}
+	
 	public abstract void calcularGanancia();
 	
 	protected void setInversionSiguiente(Inversion inversion) {

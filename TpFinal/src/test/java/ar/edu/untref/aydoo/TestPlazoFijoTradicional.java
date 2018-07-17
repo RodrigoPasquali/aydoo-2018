@@ -1,5 +1,7 @@
 package ar.edu.untref.aydoo;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -30,8 +32,8 @@ public class TestPlazoFijoTradicional {
 		
 		plazoFijoTradicional.calcularGanancia();
 		double valorObtenido = plazoFijoTradicional.getGanancia();
-		
-		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
+
+		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 
 	@Test
