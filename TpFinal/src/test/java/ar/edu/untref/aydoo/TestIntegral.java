@@ -3,6 +3,9 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import excepciones.ExcepcionDiasIncorrectos;
+import excepciones.ExcepcionInversionNoValida;
+
 public class TestIntegral {
 	
 	@Test
@@ -89,5 +92,21 @@ public class TestIntegral {
 		double valorObtenido = jorge.calcularGananciasObtenidas();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
+	
+	@Test
+	public void realizarUnaInversionDeTipoJKKDeberiaDevolverExcepcionInversionNoValida() {	  
+		Inversor jorge = new Inversor();
+		String tipoInversion = "jkk";
+		double[] parametros = {90,10, 1000};
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
+		jorge.realizarInversion(plazoFijoTradicional);		
+
+		try {
+			jorge.calcularGananciasObtenidas();
+		}catch (ExcepcionInversionNoValida e){
+
+	    }
+	
 	}
 }
