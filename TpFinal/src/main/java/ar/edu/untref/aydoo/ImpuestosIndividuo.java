@@ -30,8 +30,11 @@ public class ImpuestosIndividuo {
 		return impuestoAPagar;
 	}
 	
-	public void agregarNuevoLimiteGanancia(Integer valorMinimo, Integer valorMaximo, Double porcentajeImpuesto) {
-		Integer[] nuevoLimiteGanancia = {valorMinimo, valorMaximo};
-		this.tablaImpuestos.put(nuevoLimiteGanancia, porcentajeImpuesto);
+	public void modificarTablaDeImpuestos(Map<Integer[], Double> nuevaTablaImpuestos) {
+		this.tablaImpuestos = nuevaTablaImpuestos;
+	}
+	
+	public Map<Integer[], Double> getTablaImpuestos() {
+		return this.tablaImpuestos;
 	}
 }

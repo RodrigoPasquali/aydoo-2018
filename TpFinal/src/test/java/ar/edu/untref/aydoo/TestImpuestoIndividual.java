@@ -1,5 +1,8 @@
 package ar.edu.untref.aydoo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -101,6 +104,24 @@ public class TestImpuestoIndividual {
 		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
+	
+	@Test
+	public void deberiaPoderModificarseLaTablaDeImpuestos() {	  
+		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
+		Map<Integer[], Double> tablaImpuestos = new HashMap<Integer[], Double>();
+		Integer[] limite1 = {0, 1000};
+		Integer[] limite2 = {1000, 2000};
+		Integer[] limite3= {2000, 5000};
+		tablaImpuestos.put(limite1, 0d);
+		tablaImpuestos.put(limite2, 10d);
+		tablaImpuestos.put(limite3, 20d);
+		Map<Integer[], Double> valorEsperado = tablaImpuestos;
+		
+		impuesto.modificarTablaDeImpuestos(tablaImpuestos);
+		Map<Integer[], Double> valorObtenido = impuesto.getTablaImpuestos();
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 
 }
