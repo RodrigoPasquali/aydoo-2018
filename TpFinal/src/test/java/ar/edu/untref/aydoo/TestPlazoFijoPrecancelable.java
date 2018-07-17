@@ -16,8 +16,7 @@ public class TestPlazoFijoPrecancelable {
 		PlazoFijoPrecancelable plazoFijoPrecancelable = new PlazoFijoPrecancelable(tipoInversion, parametros);
 		double valorEsperado = 12500;
 		
-		plazoFijoPrecancelable.calcularGanancia();
-		double valorObtenido = plazoFijoPrecancelable.getGanancia();
+		double valorObtenido = plazoFijoPrecancelable.calcularGanancia();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
@@ -29,8 +28,7 @@ public class TestPlazoFijoPrecancelable {
 		PlazoFijoPrecancelable plazoFijoPrecancelable = new PlazoFijoPrecancelable(tipoInversion, parametros);
 		double valorEsperado = 6250;
 		
-		plazoFijoPrecancelable.calcularGanancia();
-		double valorObtenido = plazoFijoPrecancelable.getGanancia();
+		double valorObtenido = plazoFijoPrecancelable.calcularGanancia();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
@@ -42,8 +40,7 @@ public class TestPlazoFijoPrecancelable {
 		PlazoFijoPrecancelable plazoFijoPrecancelable = new PlazoFijoPrecancelable(tipoInversion, parametros);
 		double valorEsperado = 20000;
 		
-		plazoFijoPrecancelable.calcularGanancia();
-		double valorObtenido = plazoFijoPrecancelable.getGanancia();
+		double valorObtenido = plazoFijoPrecancelable.calcularGanancia();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
@@ -151,5 +148,4 @@ public class TestPlazoFijoPrecancelable {
 
 	    }
 	}
-
 }

@@ -3,7 +3,6 @@ package ar.edu.untref.aydoo;
 public abstract class Inversion {
 	private Inversion inversionSiguiente;
 	protected String inversion;
-	private double gananciaObtenida;
 	protected double monto;
 	protected double[] parametros;
 	
@@ -20,7 +19,7 @@ public abstract class Inversion {
 		return this.parametros;
 	}
 	
-	public abstract void calcularGanancia();
+	public abstract double calcularGanancia();
 	
 	protected void setInversionSiguiente(Inversion inversion) {
 		this.inversionSiguiente = inversion;
@@ -28,13 +27,5 @@ public abstract class Inversion {
 	
 	protected Inversion getInversionSiguiente() {
 		return this.inversionSiguiente;
-	}
-	
-	protected void setGanancia(double ganancia) {
-		this.gananciaObtenida = ganancia;
-	}
-	
-	public double getGanancia() {
-		return this.gananciaObtenida;
-	}
+	}		
 }

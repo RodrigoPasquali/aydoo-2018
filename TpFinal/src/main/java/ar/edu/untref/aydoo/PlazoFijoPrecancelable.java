@@ -13,14 +13,11 @@ public class PlazoFijoPrecancelable extends Inversion{
 
 	public PlazoFijoPrecancelable(String inversionIngresada, double[] parametrosIngresados) {
 		super(inversionIngresada, parametrosIngresados);
-		this.plazoInicial = parametrosIngresados[0];
-		this.plazoReal = parametrosIngresados[1];
-		this.interes = parametrosIngresados[2];
-		this.monto = parametrosIngresados[3];
 	}
 	
-	public void calcularGanancia() {
+	public double calcularGanancia() {
 		if(this.getInversion().equals("pfp")) {
+			this.obtenerParametros();
 			double gananciaObtenida = 0;
 			if(this.plazoInicial < 30) {
 				throw new ExcepcionDiasIncorrectos();
@@ -42,11 +39,18 @@ public class PlazoFijoPrecancelable extends Inversion{
 			if(this.plazoReal < this.plazoInicial) {
 				gananciaObtenida = gananciaObtenida/2;
 			}
-			this.setGanancia(gananciaObtenida);
+			return gananciaObtenida;
 		} else {
 			CompraDeDolares compraDolares = new CompraDeDolares(this.getInversion(), this.getParametrosEntrada());
 			this.setInversionSiguiente(compraDolares); 
-			this.getInversionSiguiente().calcularGanancia();
+			return this.getInversionSiguiente().calcularGanancia();
 		}
+	}
+	
+	private void obtenerParametros() {
+		this.plazoInicial = this.getParametrosEntrada()[0];
+		this.plazoReal = this.getParametrosEntrada()[1];
+		this.interes = this.getParametrosEntrada()[2];
+		this.monto = this.getParametrosEntrada()[3];
 	}
 }

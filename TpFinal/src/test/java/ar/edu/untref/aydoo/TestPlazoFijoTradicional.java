@@ -17,8 +17,7 @@ public class TestPlazoFijoTradicional {
 		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
 		double valorEsperado = 50000;
 		
-		plazoFijoTradicional.calcularGanancia();
-		double valorObtenido = plazoFijoTradicional.getGanancia();
+		double valorObtenido = plazoFijoTradicional.calcularGanancia();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
@@ -30,8 +29,7 @@ public class TestPlazoFijoTradicional {
 		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
 		double valorEsperado = 24657.5;
 		
-		plazoFijoTradicional.calcularGanancia();
-		double valorObtenido = plazoFijoTradicional.getGanancia();
+		double valorObtenido = plazoFijoTradicional.calcularGanancia();
 
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}

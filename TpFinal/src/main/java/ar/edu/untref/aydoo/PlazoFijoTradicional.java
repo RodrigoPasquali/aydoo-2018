@@ -11,14 +11,12 @@ public class PlazoFijoTradicional extends Inversion{
 	
 	public PlazoFijoTradicional(String inversionIngresada, double[] parametrosIngresados) {
 		super(inversionIngresada, parametrosIngresados);
-		this.plazo = parametrosIngresados[0];
-		this.interes = parametrosIngresados[1];
-		this.monto = parametrosIngresados[2];
 	}
 
 	@Override
-	public void calcularGanancia() {
+	public double calcularGanancia() {
 		if(this.getInversion().equals("pft")) {
+			this.obtenerParametros();
 			double gananciaObtenida = 0;
 			if(plazo < 30) {
 				throw new ExcepcionDiasIncorrectos();
@@ -30,14 +28,19 @@ public class PlazoFijoTradicional extends Inversion{
 				throw new ExcepcionInteresIncorrecto();
 			}
 			
-			double porcentajeEnDias = (this.plazo / 365);
-			gananciaObtenida = ((this.monto * this.interes) / 100) * porcentajeEnDias;
-			this.setGanancia(gananciaObtenida);
+			double porcentajeEnDias = (plazo / 365);
+			return gananciaObtenida = ((monto * interes) / 100) * porcentajeEnDias;
 		} else {
 			PlazoFijoPrecancelable plazoFijo = new PlazoFijoPrecancelable(this.getInversion(), this.getParametrosEntrada());
 			this.setInversionSiguiente(plazoFijo); 
-			this.getInversionSiguiente().calcularGanancia();
+			return this.getInversionSiguiente().calcularGanancia();
 		}
+	}
+		
+	private void obtenerParametros() {
+		this.plazo = this.getParametrosEntrada()[0];
+		this.interes = this.getParametrosEntrada()[1];
+		this.monto = this.getParametrosEntrada()[2];
 	}
 }
 	

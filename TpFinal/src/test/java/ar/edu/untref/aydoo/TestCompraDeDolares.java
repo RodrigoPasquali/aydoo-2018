@@ -14,8 +14,7 @@ public class TestCompraDeDolares {
 		CompraDeDolares comprarDolares = new CompraDeDolares(tipoInversion, parametros);
 		double valorEsperado = 400;
 		
-		comprarDolares.calcularGanancia();
-		double valorObtenido = comprarDolares.getGanancia();
+		double valorObtenido = comprarDolares.calcularGanancia();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
@@ -27,8 +26,7 @@ public class TestCompraDeDolares {
 		CompraDeDolares comprarDolares = new CompraDeDolares(tipoInversion, parametros);
 		double valorEsperado = 8000;
 		
-		comprarDolares.calcularGanancia();
-		double valorObtenido = comprarDolares.getGanancia();
+		double valorObtenido = comprarDolares.calcularGanancia();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
@@ -40,8 +38,7 @@ public class TestCompraDeDolares {
 		CompraDeDolares comprarDolares = new CompraDeDolares(tipoInversion, parametros);
 		double valorEsperado = 50000;
 		
-		comprarDolares.calcularGanancia();
-		double valorObtenido = comprarDolares.getGanancia();
+		double valorObtenido = comprarDolares.calcularGanancia();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}

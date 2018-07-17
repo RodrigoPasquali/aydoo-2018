@@ -1,18 +1,24 @@
 package ar.edu.untref.aydoo;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Inversor {
-	private double gananciaObtenida;
+	private List<Inversion> inversiones;
 	
 	public Inversor() {
-		this.gananciaObtenida = 0;
+		this.inversiones = new LinkedList<Inversion>();
 	}
 	
 	public void realizarInversion(Inversion inversion) {
-		inversion.calcularGanancia();
-		this.gananciaObtenida = inversion.getGanancia();
+		this.inversiones.add(inversion);
 	}
 	
-	public double getGanancias() {
-		return this.gananciaObtenida;
-	}
+	public double calcularGananciasObtenidas() {
+		double gananciaObtenida = 0;
+		for(int i = 0; i < this.inversiones.size(); i++) {
+			gananciaObtenida = gananciaObtenida + this.inversiones.get(i).calcularGanancia();					
+		}
+		return gananciaObtenida;
+	}	
 }
