@@ -81,4 +81,26 @@ public class TestImpuestoIndividual {
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 
+	@Test
+	public void elImpuestoAUnaGananciaDe500000DeberiaSer50000() {	  
+		double ganancia = 500000;
+		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
+		double valorEsperado = 50000;
+		
+		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
+
+	@Test
+	public void elImpuestoAUnaGananciaDe500001DeberiaSer50000() {	  
+		double ganancia = 500001;
+		ImpuestosIndividuo impuesto = new ImpuestosIndividuo();
+		double valorEsperado = 50000.1;
+		
+		double valorObtenido = impuesto.aplicarImpuesto(ganancia);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
+
 }
