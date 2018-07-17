@@ -3,7 +3,6 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import excepciones.ExcepcionDiasIncorrectos;
 import excepciones.ExcepcionInversionNoValida;
 
 public class TestIntegral {
@@ -107,6 +106,5 @@ public class TestIntegral {
 		}catch (ExcepcionInversionNoValida e){
 
 	    }
-	
 	}
 }
