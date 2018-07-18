@@ -8,8 +8,6 @@ public class ImpuestosIndividuo extends Impuesto{
 
 	public ImpuestosIndividuo(String impuestoIngresado) {
 		super(impuestoIngresado);
-		ImpuestosEmpresa impuestoEmpresa = new ImpuestosEmpresa(impuestoIngresado);
-		this.setImpuestoSiguiente(impuestoEmpresa);
 	}
 	
 	public double aplicarImpuesto(double ganancia) {
@@ -25,6 +23,8 @@ public class ImpuestosIndividuo extends Impuesto{
 			}
 			return impuestoAPagar;
 		} else {
+			ImpuestosEmpresa impuestoEmpresa = new ImpuestosEmpresa(this.getTipoCliente());
+			this.setImpuestoSiguiente(impuestoEmpresa);
 			return this.getImpuestoSiguiente().aplicarImpuesto(ganancia);
 		}
 
