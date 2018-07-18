@@ -1,6 +1,4 @@
 /target/
 /.settings/
 /bin/
-/.checkstyle/
 /.project/
-/checkstyle-ignores.xml/

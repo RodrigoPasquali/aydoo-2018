@@ -6,6 +6,9 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import excepciones.ExcepcionDiasIncorrectos;
+import excepciones.ExcepcionUsuarioNoValido;
+
 public class TestImpuestoIndividual {
 	@Test
 	public void elImpuestoAUnaGananciaDe100DeberiaSer0() {	  
@@ -122,5 +125,17 @@ public class TestImpuestoIndividual {
 		Map<Integer[], Double> valorObtenido = impuesto.getTablaImpuestos();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test
+	public void introducirTipoDeClienteZXXDeberiaLanzarExcepcionUsuarioNoValido() {	  
+		double ganancia = 500001;
+		ImpuestosIndividuo impuesto = new ImpuestosIndividuo("zxx");
+		
+		try {
+			impuesto.aplicarImpuesto(ganancia);
+		}catch (ExcepcionUsuarioNoValido e){
+
+	    }
 	}
 }
