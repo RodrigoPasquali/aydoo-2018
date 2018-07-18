@@ -1,5 +1,7 @@
 package ar.edu.untref.aydoo;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -103,18 +105,19 @@ public class TestIntegral {
 	@Test	
 	public void conUnaGananciaDe120000UnIndividuoDeberiaPagarUnImpuestoDe9600() {	  
 		Inversor jorge = new Inversor();
-		String[] parametrosPft = {"pft", "365", "10", "500000"};
-		Inversion plazoFijoTradicional = new PlazoFijoTradicional(parametrosPft);
-		String[] parametrosDol = {"dol", "100000", "18", "27"};
-		Inversion comprarDeDolares = new PlazoFijoTradicional(parametrosDol);
-		String[] parametrosPfp = {"pfp", "365", "300", "40", "100000"};
-		Inversion plazoFijoPrecancelable = new PlazoFijoTradicional(parametrosPfp);
+		String[] parametros = {"ind", "pft,365,10,500000", "dol,100000,18,27", "pfp,365,300,40,100000"};
+		ManejadorArgumentosEntrada manejador = new ManejadorArgumentosEntrada(parametros);
+		manejador.separarArgumentos();
+		List<String[]> listaInversiones = manejador.getListaInversiones();
+		Inversion plazoFijoTradicional = new PlazoFijoTradicional(listaInversiones.get(0));
+		Inversion comprarDeDolares = new PlazoFijoTradicional(listaInversiones.get(1));
+		Inversion plazoFijoPrecancelable = new PlazoFijoTradicional(listaInversiones.get(2));
 		double valorEsperado = 9600;	
 		jorge.realizarInversion(plazoFijoPrecancelable);		
 		jorge.realizarInversion(plazoFijoTradicional);		
 		jorge.realizarInversion(comprarDeDolares);
 		double gananciaObtenida = jorge.calcularGananciasObtenidas();
-		Impuesto impuesto = new ImpuestosIndividuo("ind");
+		Impuesto impuesto = new ImpuestosIndividuo(manejador.getTipoCliente());		
 		
 		double valorObtenido = impuesto.aplicarImpuesto(gananciaObtenida);
 				
@@ -124,18 +127,19 @@ public class TestIntegral {
 	@Test	
 	public void conUnaGananciaDe120000UnaEmpresaDeberiaPagarUnImpuestoDe18000() {	  
 		Inversor jorge = new Inversor();
-		String[] parametrosPft = {"pft", "365", "10", "500000"};
-		Inversion plazoFijoTradicional = new PlazoFijoTradicional(parametrosPft);
-		String[] parametrosDol = {"dol", "100000", "18", "27"};
-		Inversion comprarDeDolares = new PlazoFijoTradicional(parametrosDol);
-		String[] parametrosPfp = {"pfp", "365", "300", "40", "100000"};
-		Inversion plazoFijoPrecancelable = new PlazoFijoTradicional(parametrosPfp);
+		String[] parametros = {"emp", "pft,365,10,500000", "dol,100000,18,27", "pfp,365,300,40,100000"};
+		ManejadorArgumentosEntrada manejador = new ManejadorArgumentosEntrada(parametros);
+		manejador.separarArgumentos();
+		List<String[]> listaInversiones = manejador.getListaInversiones();
+		Inversion plazoFijoTradicional = new PlazoFijoTradicional(listaInversiones.get(0));
+		Inversion comprarDeDolares = new PlazoFijoTradicional(listaInversiones.get(1));
+		Inversion plazoFijoPrecancelable = new PlazoFijoTradicional(listaInversiones.get(2));
 		double valorEsperado = 18000;	
 		jorge.realizarInversion(plazoFijoPrecancelable);		
 		jorge.realizarInversion(plazoFijoTradicional);		
 		jorge.realizarInversion(comprarDeDolares);
 		double gananciaObtenida = jorge.calcularGananciasObtenidas();
-		Impuesto impuesto = new ImpuestosIndividuo("emp");
+		Impuesto impuesto = new ImpuestosIndividuo(manejador.getTipoCliente());		
 		
 		double valorObtenido = impuesto.aplicarImpuesto(gananciaObtenida);
 				
@@ -145,15 +149,17 @@ public class TestIntegral {
 	@Test	
 	public void conUnaGananciaDe32657_5UnIndividuoDeberiaPagarUnImpuestoDe9600() {	  
 		Inversor jorge = new Inversor();
-		String[] parametrosPft = {"pft", "90", "40", "250000"};
-		Inversion plazoFijoTradicional = new PlazoFijoTradicional(parametrosPft);
-		String[] parametrosDol = {"dol", "20000", "20", "28"};
-		Inversion comprarDeDolares = new PlazoFijoTradicional(parametrosDol);
+		String[] parametros = {"ind", "pft,90,40,250000", "dol,20000,20,28"};
+		ManejadorArgumentosEntrada manejador = new ManejadorArgumentosEntrada(parametros);
+		manejador.separarArgumentos();
+		List<String[]> listaInversiones = manejador.getListaInversiones();
+		Inversion plazoFijoTradicional = new PlazoFijoTradicional(listaInversiones.get(0));
+		Inversion comprarDeDolares = new PlazoFijoTradicional(listaInversiones.get(1));		
 		double valorEsperado = 0;				
 		jorge.realizarInversion(plazoFijoTradicional);		
 		jorge.realizarInversion(comprarDeDolares);
 		double gananciaObtenida = jorge.calcularGananciasObtenidas();
-		Impuesto impuesto = new ImpuestosIndividuo("ind");
+		Impuesto impuesto = new ImpuestosIndividuo(manejador.getTipoCliente());		
 		
 		double valorObtenido = impuesto.aplicarImpuesto(gananciaObtenida);
 		
@@ -163,15 +169,17 @@ public class TestIntegral {
 	@Test	
 	public void conUnaGananciaDe32657_5UnaEmpresaDeberiaPagarUnImpuestoDe9600() {	  
 		Inversor jorge = new Inversor();
-		String[] parametrosPft = {"pft", "90", "40", "250000"};
-		Inversion plazoFijoTradicional = new PlazoFijoTradicional(parametrosPft);
-		String[] parametrosDol = {"dol", "20000", "20", "28"};
-		Inversion comprarDeDolares = new PlazoFijoTradicional(parametrosDol);
+		String[] parametros = {"emp", "pft,90,40,250000", "dol,20000,20,28"};
+		ManejadorArgumentosEntrada manejador = new ManejadorArgumentosEntrada(parametros);
+		manejador.separarArgumentos();
+		List<String[]> listaInversiones = manejador.getListaInversiones();
+		Inversion plazoFijoTradicional = new PlazoFijoTradicional(listaInversiones.get(0));
+		Inversion comprarDeDolares = new PlazoFijoTradicional(listaInversiones.get(1));		
 		double valorEsperado = 1632.9;				
 		jorge.realizarInversion(plazoFijoTradicional);		
 		jorge.realizarInversion(comprarDeDolares);
 		double gananciaObtenida = jorge.calcularGananciasObtenidas();
-		Impuesto impuesto = new ImpuestosIndividuo("emp");
+		Impuesto impuesto = new ImpuestosIndividuo(manejador.getTipoCliente());		
 		
 		double valorObtenido = impuesto.aplicarImpuesto(gananciaObtenida);
 		
@@ -181,16 +189,17 @@ public class TestIntegral {
 	@Test	
 	public void cuandoSeIntoduceTipoDeClienteZZZDeberiaLanzarExcepcionUsuarioNoValido() {	  
 		Inversor jorge = new Inversor();
-		String[] parametrosPft = {"pft", "90", "40", "250000"};
-		Inversion plazoFijoTradicional = new PlazoFijoTradicional(parametrosPft);
-		String[] parametrosDol = {"dol", "20000", "20", "28"};
-		Inversion comprarDeDolares = new PlazoFijoTradicional(parametrosDol);
+		String[] parametros = {"zzz", "pft,90,40,250000", "dol,20000,20,28"};
+		ManejadorArgumentosEntrada manejador = new ManejadorArgumentosEntrada(parametros);
+		manejador.separarArgumentos();
+		List<String[]> listaInversiones = manejador.getListaInversiones();
+		Inversion plazoFijoTradicional = new PlazoFijoTradicional(listaInversiones.get(0));
+		Inversion comprarDeDolares = new PlazoFijoTradicional(listaInversiones.get(1));		
 		jorge.realizarInversion(plazoFijoTradicional);		
 		jorge.realizarInversion(comprarDeDolares);
 		double gananciaObtenida = jorge.calcularGananciasObtenidas();
-		Impuesto impuesto = new ImpuestosIndividuo("zzz");
-		
-		
+		Impuesto impuesto = new ImpuestosIndividuo(manejador.getTipoCliente());		
+				
 		try {
 			impuesto.aplicarImpuesto(gananciaObtenida);
 		}catch (ExcepcionUsuarioNoValido e){
