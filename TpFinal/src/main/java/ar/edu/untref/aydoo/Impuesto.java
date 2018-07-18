@@ -11,15 +11,15 @@ public abstract class Impuesto {
 		this.tipoCliente = impuestoIngresado;
 	}
 	
-	public String getTipoCliente() {
+	protected String getTipoCliente() {
 		return this.tipoCliente;
 	}
 
-	public Impuesto getImpuestoSiguiente() {
+	protected Impuesto getImpuestoSiguiente() {
 		return impuestoSiguiente;
 	}
 
-	public void setImpuestoSiguiente(Impuesto impuestoSiguiente) {
+	protected void setImpuestoSiguiente(Impuesto impuestoSiguiente) {
 		this.impuestoSiguiente = impuestoSiguiente;
 	}
 
