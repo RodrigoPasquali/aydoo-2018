@@ -3,16 +3,9 @@ package ar.edu.untref.aydoo;
 public abstract class Inversion {
 	private Inversion inversionSiguiente;
 	private String tipoInversion;
-	private double monto;
 	private double[] parametros;
 	private String[] inversionRealizada;
 
-/*	
-	public Inversion(String inversionIngresada, double[] parametrosIngresados) {
-		this.inversion = inversionIngresada;
-		this.parametros = parametrosIngresados;
-	}
-*/
 	public Inversion(String[] inversionRealizada) {
 		this.tipoInversion = inversionRealizada[0];
 		this.inversionRealizada = inversionRealizada;
