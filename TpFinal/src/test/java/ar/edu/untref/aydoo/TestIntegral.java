@@ -206,4 +206,52 @@ public class TestIntegral {
 
 	    }
 	}
+	
+	@Test	
+	public void laSalidaDeberiaSerGanancia12000Impuesto9600() {	  
+		Inversor jorge = new Inversor();
+		String[] parametros = {"ind", "pft,365,10,500000", "dol,100000,18,27", "pfp,365,300,40,100000"};
+		ManejadorArgumentosEntrada manejador = new ManejadorArgumentosEntrada(parametros);
+		manejador.separarArgumentos();
+		List<String[]> listaInversiones = manejador.getListaInversiones();
+		Inversion plazoFijoTradicional = new PlazoFijoTradicional(listaInversiones.get(0));
+		Inversion comprarDeDolares = new PlazoFijoTradicional(listaInversiones.get(1));
+		Inversion plazoFijoPrecancelable = new PlazoFijoTradicional(listaInversiones.get(2));
+		String valorEsperado = "ganancia: 120000.0, impuesto: 9600.0";	
+		jorge.realizarInversion(plazoFijoPrecancelable);		
+		jorge.realizarInversion(plazoFijoTradicional);		
+		jorge.realizarInversion(comprarDeDolares);
+		double gananciaObtenida = jorge.calcularGananciasObtenidas();
+		Impuesto impuesto = new ImpuestosIndividuo(manejador.getTipoCliente());	
+		double impuestoObtenido = impuesto.aplicarImpuesto(gananciaObtenida);
+		Salida salida = new Salida(gananciaObtenida, impuestoObtenido);
+		
+		String valorObtenido = salida.generarSalida();
+				
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test	
+	public void laSalidaDeberiaSerGanancia120000Impuesto18000() {	  
+		Inversor jorge = new Inversor();
+		String[] parametros = {"emp", "pft,365,10,500000", "dol,100000,18,27", "pfp,365,300,40,100000"};
+		ManejadorArgumentosEntrada manejador = new ManejadorArgumentosEntrada(parametros);
+		manejador.separarArgumentos();
+		List<String[]> listaInversiones = manejador.getListaInversiones();
+		Inversion plazoFijoTradicional = new PlazoFijoTradicional(listaInversiones.get(0));
+		Inversion comprarDeDolares = new PlazoFijoTradicional(listaInversiones.get(1));
+		Inversion plazoFijoPrecancelable = new PlazoFijoTradicional(listaInversiones.get(2));
+		String valorEsperado = "ganancia: 120000.0, impuesto: 18000.0";
+		jorge.realizarInversion(plazoFijoPrecancelable);		
+		jorge.realizarInversion(plazoFijoTradicional);		
+		jorge.realizarInversion(comprarDeDolares);
+		double gananciaObtenida = jorge.calcularGananciasObtenidas();
+		Impuesto impuesto = new ImpuestosIndividuo(manejador.getTipoCliente());		
+		double impuestoObtenido = impuesto.aplicarImpuesto(gananciaObtenida);
+		Salida salida = new Salida(gananciaObtenida, impuestoObtenido);
+		
+		String valorObtenido = salida.generarSalida();
+				
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
 }
