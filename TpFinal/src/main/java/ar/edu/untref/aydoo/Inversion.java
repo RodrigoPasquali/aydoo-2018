@@ -2,17 +2,24 @@ package ar.edu.untref.aydoo;
 
 public abstract class Inversion {
 	private Inversion inversionSiguiente;
-	protected String inversion;
-	protected double monto;
-	protected double[] parametros;
-	
+	private String tipoInversion;
+	private double monto;
+	private double[] parametros;
+	private String[] inversionRealizada;
+
+/*	
 	public Inversion(String inversionIngresada, double[] parametrosIngresados) {
 		this.inversion = inversionIngresada;
 		this.parametros = parametrosIngresados;
 	}
+*/
+	public Inversion(String[] inversionRealizada) {
+		this.tipoInversion = inversionRealizada[0];
+		this.inversionRealizada = inversionRealizada;
+	}
 	
-	public String getInversion() {
-		return inversion;
+	public String getTipoInversion() {
+		return tipoInversion;
 	}
 	
 	public double[] getParametrosEntrada() {
@@ -27,5 +34,9 @@ public abstract class Inversion {
 	
 	protected Inversion getInversionSiguiente() {
 		return this.inversionSiguiente;
-	}		
+	}
+
+	protected String[] getInversionRealizada() {
+		return inversionRealizada;
+	}	
 }

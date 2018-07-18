@@ -4,8 +4,8 @@ import excepciones.ExcepcionInversionNoValida;
 
 public class InversionNoValida extends Inversion{
 
-	public InversionNoValida(String inversionIngresada, double[] parametrosIngresados) {
-		super(inversionIngresada, parametrosIngresados);
+	public InversionNoValida(String[] inversionIngresada) {
+		super(inversionIngresada);
 	}
 
 	@Override

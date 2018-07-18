@@ -8,13 +8,13 @@ public class CompraDeDolares extends Inversion{
 	private double cotizacionInicial;
 	private double cotizacionFinal;
 
-	public CompraDeDolares(String inversionIngresada, double[] parametrosIngresados) {
-		super(inversionIngresada, parametrosIngresados);
+	public CompraDeDolares(String[] inversionIngresada) {
+		super(inversionIngresada);
 	}
 	
 	public double calcularGanancia() {
 		double gananciaObtenida = 0;	
-		if(this.getInversion().equals("dol")) {
+		if(this.getTipoInversion().equals("dol")) {
 			this.obtenerParametros();
 			if(this.montoPesosInicial < this.cotizacionInicial) {
 				throw new ExcepcionMontoMenorACotizacionDolar();
@@ -24,14 +24,17 @@ public class CompraDeDolares extends Inversion{
 			}
 			double montoDolares = this.montoPesosInicial / this.cotizacionInicial;
 			double montoPesosFinal = montoDolares * this.cotizacionFinal;
-			gananciaObtenida = montoPesosFinal - montoPesosInicial;
+			return gananciaObtenida = montoPesosFinal - montoPesosInicial;
+		} else {
+			InversionNoValida compraDolares = new InversionNoValida(this.getInversionRealizada());
+			this.setInversionSiguiente(compraDolares); 
+			return this.getInversionSiguiente().calcularGanancia();
 		}
-		return gananciaObtenida;
 	}
 	
 	private void obtenerParametros() {
-		this.montoPesosInicial = this.getParametrosEntrada()[0];
-		this.cotizacionInicial = this.getParametrosEntrada()[1];
-		this.cotizacionFinal = this.getParametrosEntrada()[2];
+		this.montoPesosInicial = Double.parseDouble(this.getInversionRealizada()[1]);
+		this.cotizacionInicial = Double.parseDouble(this.getInversionRealizada()[2]);
+		this.cotizacionFinal = Double.parseDouble(this.getInversionRealizada()[3]);
 	}
 }

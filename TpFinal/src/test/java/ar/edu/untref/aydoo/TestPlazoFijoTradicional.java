@@ -12,21 +12,19 @@ import excepciones.ExcepcionMontoIncorrecto;
 public class TestPlazoFijoTradicional {
 	@Test
 	public void realizarUnPlazoFijoTradicionalDeberiaDevolver50000DeGananciaCuandoElMontoEs50000YElInteresEs10() {	  
-		String tipoInversion = "pft";
-		double[] parametros = {365, 10, 500000};
-		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
+		String[] parametros = {"pft", "365", "10", "500000"};
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(parametros);
 		double valorEsperado = 50000;
 		
 		double valorObtenido = plazoFijoTradicional.calcularGanancia();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
-	
+
 	@Test	
 	public void realizarUnPlazoFijoTradicionalDeberiaDevolver12500DeGananciaCuandoElMontoEs5000YElInteresEs25() {	  
-		String tipoInversion = "pft";
-		double[] parametros = {90, 40, 250000};
-		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
+		String[] parametros = {"pft", "90", "40", "250000"};
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(parametros);
 		double valorEsperado = 24657.5;
 		
 		double valorObtenido = plazoFijoTradicional.calcularGanancia();
@@ -36,9 +34,9 @@ public class TestPlazoFijoTradicional {
 
 	@Test
 	public void realizarUnPlazoFijoTradicionalDe10DiasDeberiaLanzarExcepcionDiasIncorrectos() {	  
-		String tipoInversion = "pft";
-		double[] parametros = {10, 25, 50000};
-		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
+		String[] parametros = {"pft", "10", "25", "50000"};
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(parametros);
+
 		
 		try {
 			plazoFijoTradicional.calcularGanancia();
@@ -49,9 +47,8 @@ public class TestPlazoFijoTradicional {
 	
 	@Test
 	public void realizarUnPlazoFijoTradicionalDe29DiasDeberiaLanzarExcepcionDiasIncorrectos() {	  
-		String tipoInversion = "pft";
-		double[] parametros = {29, 25, 50000};
-		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
+		String[] parametros = {"pft", "29", "25", "50000"};
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(parametros);
 		
 		try {
 			plazoFijoTradicional.calcularGanancia();
@@ -62,9 +59,8 @@ public class TestPlazoFijoTradicional {
 
 	@Test
 	public void realizarUnPlazoFijoTradicionalDeMonto0DeberiaLanzarExcepcionMontoIncorrecto() {	  
-		String tipoInversion = "pft";
-		double[] parametros = {50, 25, 0};
-		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
+		String[] parametros = {"pft", "50", "25", "0"};
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(parametros);
 		
 		try {
 			plazoFijoTradicional.calcularGanancia();
@@ -75,9 +71,8 @@ public class TestPlazoFijoTradicional {
 	
 	@Test
 	public void realizarUnPlazoFijoTradicionalDeMonto1NegativoDeberiaLanzarExcepcionMontoIncorrecto() {	  
-		String tipoInversion = "pft";
-		double[] parametros = {50, 25, -1};
-		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
+		String[] parametros = {"pft", "50", "25", "-1"};
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(parametros);
 		
 		try {
 			plazoFijoTradicional.calcularGanancia();
@@ -88,9 +83,8 @@ public class TestPlazoFijoTradicional {
 	
 	@Test
 	public void realizarUnPlazoFijoTradicionalDeInteres0DeberiaLanzarExcepcionInteresIncorrecto() {	  
-		String tipoInversion = "pft";
-		double[] parametros = {50, 0, 1000};
-		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
+		String[] parametros = {"pft", "50", "0", "1000"};
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(parametros);
 		
 		try {
 			plazoFijoTradicional.calcularGanancia();
@@ -101,10 +95,9 @@ public class TestPlazoFijoTradicional {
 	
 	@Test
 	public void realizarUnPlazoFijoTradicionalDeInteres1NegativoDeberiaLanzarExcepcionInteresIncorrecto() {	  
-		String tipoInversion = "pft";
-		double[] parametros = {50, -1, 1000};
-		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(tipoInversion, parametros);
-		
+		String[] parametros = {"pft", "50", "-1", "1000"};
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(parametros);
+	
 		try {
 			plazoFijoTradicional.calcularGanancia();
 		}catch (ExcepcionInteresIncorrecto e){
