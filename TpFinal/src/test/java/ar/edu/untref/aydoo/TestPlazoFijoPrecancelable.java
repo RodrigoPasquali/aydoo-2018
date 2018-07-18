@@ -6,6 +6,7 @@ import org.junit.Test;
 import excepciones.ExcepcionDiasIncorrectos;
 import excepciones.ExcepcionInteresIncorrecto;
 import excepciones.ExcepcionMontoIncorrecto;
+import excepciones.ExcepcionParametroNoNumerico;
 import excepciones.ExcepcionPlazoRealMayorAInicial;
 
 public class TestPlazoFijoPrecancelable {	
@@ -138,6 +139,18 @@ public class TestPlazoFijoPrecancelable {
 		try {
 			plazoFijoPrecancelable.calcularGanancia();
 		}catch (ExcepcionDiasIncorrectos e){
+
+	    }
+	}
+	
+	@Test
+	public void realizarUnPlazoFijoPrecancelablePasandoUnArgumentoIncorrectoDeberiaLanzarExcepcionParametroNoNumerico() {	  
+		String[] parametros = {"pfp", "30", "-1", "zz", "50000"};
+		PlazoFijoPrecancelable plazoFijoPrecancelable = new PlazoFijoPrecancelable(parametros);		
+		
+		try {
+			plazoFijoPrecancelable.calcularGanancia();
+		}catch (ExcepcionParametroNoNumerico e){
 
 	    }
 	}

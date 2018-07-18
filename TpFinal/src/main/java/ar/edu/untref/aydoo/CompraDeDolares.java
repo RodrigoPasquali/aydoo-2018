@@ -2,6 +2,7 @@ package ar.edu.untref.aydoo;
 
 import excepciones.ExcepcionCotizacionDolarIncorrecta;
 import excepciones.ExcepcionMontoMenorACotizacionDolar;
+import excepciones.ExcepcionParametroNoNumerico;
 
 public class CompraDeDolares extends Inversion{	
 	private double montoPesosInicial;
@@ -33,8 +34,12 @@ public class CompraDeDolares extends Inversion{
 	}
 	
 	private void obtenerParametros() {
-		this.montoPesosInicial = Double.parseDouble(this.getInversionRealizada()[1]);
-		this.cotizacionInicial = Double.parseDouble(this.getInversionRealizada()[2]);
-		this.cotizacionFinal = Double.parseDouble(this.getInversionRealizada()[3]);
+		try {
+			this.montoPesosInicial = Double.parseDouble(this.getInversionRealizada()[1]);
+			this.cotizacionInicial = Double.parseDouble(this.getInversionRealizada()[2]);
+			this.cotizacionFinal = Double.parseDouble(this.getInversionRealizada()[3]);
+		} catch (Exception e){
+			throw new ExcepcionParametroNoNumerico();
+		}
 	}
 }

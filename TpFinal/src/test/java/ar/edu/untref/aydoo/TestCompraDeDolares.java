@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import excepciones.ExcepcionCotizacionDolarIncorrecta;
 import excepciones.ExcepcionMontoMenorACotizacionDolar;
+import excepciones.ExcepcionParametroNoNumerico;
 
 public class TestCompraDeDolares {
 	@Test
@@ -72,6 +73,18 @@ public class TestCompraDeDolares {
 		try {
 			comprarDolares.calcularGanancia();
 		}catch (ExcepcionCotizacionDolarIncorrecta e){
+
+	    }		
+	}
+	
+	@Test
+	public void realizarLaCompraDeDolaresPasandoUnArgumentoIncorrectoDeberiaLanzarExcepcionParametroNoNumerico() {	  
+		String[] parametros = {"dol", "10", "0", "zsas"};
+		CompraDeDolares comprarDolares = new CompraDeDolares(parametros);
+		
+		try {
+			comprarDolares.calcularGanancia();
+		}catch (ExcepcionParametroNoNumerico e){
 
 	    }		
 	}

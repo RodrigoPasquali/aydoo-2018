@@ -3,6 +3,7 @@ package ar.edu.untref.aydoo;
 import excepciones.ExcepcionDiasIncorrectos;
 import excepciones.ExcepcionInteresIncorrecto;
 import excepciones.ExcepcionMontoIncorrecto;
+import excepciones.ExcepcionParametroNoNumerico;
 import excepciones.ExcepcionPlazoRealMayorAInicial;
 
 public class PlazoFijoPrecancelable extends Inversion{	
@@ -48,9 +49,13 @@ public class PlazoFijoPrecancelable extends Inversion{
 	}
 	
 	private void obtenerParametros() {
-		this.plazoInicial = Double.parseDouble(this.getInversionRealizada()[1]);
-		this.plazoReal = Double.parseDouble(this.getInversionRealizada()[2]);
-		this.interes = Double.parseDouble(this.getInversionRealizada()[3]);
-		this.monto = Double.parseDouble(this.getInversionRealizada()[4]);
+		try {			
+			this.plazoInicial = Double.parseDouble(this.getInversionRealizada()[1]);
+			this.plazoReal = Double.parseDouble(this.getInversionRealizada()[2]);
+			this.interes = Double.parseDouble(this.getInversionRealizada()[3]);
+			this.monto = Double.parseDouble(this.getInversionRealizada()[4]);
+		} catch (Exception e){
+			throw new ExcepcionParametroNoNumerico();
+		}
 	}
 }

@@ -3,6 +3,7 @@ package ar.edu.untref.aydoo;
 import excepciones.ExcepcionDiasIncorrectos;
 import excepciones.ExcepcionInteresIncorrecto;
 import excepciones.ExcepcionMontoIncorrecto;
+import excepciones.ExcepcionParametroNoNumerico;
 
 public class PlazoFijoTradicional extends Inversion{
 	private double plazo;
@@ -38,9 +39,13 @@ public class PlazoFijoTradicional extends Inversion{
 	}
 
 	private void obtenerParametros() {
-		this.plazo = Double.parseDouble(this.getInversionRealizada()[1]);
-		this.interes = Double.parseDouble(this.getInversionRealizada()[2]);
-		this.monto = Double.parseDouble(this.getInversionRealizada()[3]);
+		try {
+			this.plazo = Double.parseDouble(this.getInversionRealizada()[1]);
+			this.interes = Double.parseDouble(this.getInversionRealizada()[2]);
+			this.monto = Double.parseDouble(this.getInversionRealizada()[3]);			
+		} catch (Exception e){
+			throw new ExcepcionParametroNoNumerico();
+		}
 	}
 }
 	

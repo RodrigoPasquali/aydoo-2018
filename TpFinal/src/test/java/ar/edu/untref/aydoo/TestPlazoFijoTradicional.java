@@ -8,6 +8,7 @@ import org.junit.Test;
 import excepciones.ExcepcionDiasIncorrectos;
 import excepciones.ExcepcionInteresIncorrecto;
 import excepciones.ExcepcionMontoIncorrecto;
+import excepciones.ExcepcionParametroNoNumerico;
 
 public class TestPlazoFijoTradicional {
 	@Test
@@ -101,6 +102,18 @@ public class TestPlazoFijoTradicional {
 		try {
 			plazoFijoTradicional.calcularGanancia();
 		}catch (ExcepcionInteresIncorrecto e){
+
+	    }
+	}
+	
+	@Test
+	public void realizarUnPlazoFijoTradicionalPasandoUnArgumentoIncorrectoDeberiaLanzarExcepcionParametroNoNumerico() {	  
+		String[] parametros = {"pft", "k", "-1", "1000"};
+		PlazoFijoTradicional plazoFijoTradicional = new PlazoFijoTradicional(parametros);
+	
+		try {
+			plazoFijoTradicional.calcularGanancia();
+		}catch (ExcepcionParametroNoNumerico e){
 
 	    }
 	}
