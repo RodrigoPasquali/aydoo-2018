@@ -217,7 +217,7 @@ public class TestIntegral {
 		Inversion plazoFijoTradicional = new PlazoFijoTradicional(listaInversiones.get(0));
 		Inversion comprarDeDolares = new PlazoFijoTradicional(listaInversiones.get(1));
 		Inversion plazoFijoPrecancelable = new PlazoFijoTradicional(listaInversiones.get(2));
-		String valorEsperado = "ganancia: 120000.0, impuesto: 9600.0";	
+		String valorEsperado = "ganancia: 120000, impuesto: 9600";	
 		jorge.realizarInversion(plazoFijoPrecancelable);		
 		jorge.realizarInversion(plazoFijoTradicional);		
 		jorge.realizarInversion(comprarDeDolares);
@@ -241,7 +241,7 @@ public class TestIntegral {
 		Inversion plazoFijoTradicional = new PlazoFijoTradicional(listaInversiones.get(0));
 		Inversion comprarDeDolares = new PlazoFijoTradicional(listaInversiones.get(1));
 		Inversion plazoFijoPrecancelable = new PlazoFijoTradicional(listaInversiones.get(2));
-		String valorEsperado = "ganancia: 120000.0, impuesto: 18000.0";
+		String valorEsperado = "ganancia: 120000, impuesto: 18000";
 		jorge.realizarInversion(plazoFijoPrecancelable);		
 		jorge.realizarInversion(plazoFijoTradicional);		
 		jorge.realizarInversion(comprarDeDolares);

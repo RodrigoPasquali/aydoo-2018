@@ -9,8 +9,9 @@ public class Salida {
 		this.impuesto = impuestoObtenido;
 	}
 	
+	@SuppressWarnings("static-access")
 	public String generarSalida() {
-		String cadenaSalida = "ganancia: " + this.ganancia + ", impuesto: " + this.impuesto;
-		return cadenaSalida;
+		String cadenaSalida = "ganancia: " + "%.0f" + ", impuesto: " + "%.0f";
+		return cadenaSalida.format(cadenaSalida, this.ganancia,this.impuesto);
 	}
-}
+}										

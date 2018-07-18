@@ -9,7 +9,7 @@ public class TestSalida {
 		double ganancia = 10000;
 		double impuesto = 55;
 		Salida salida = new Salida(ganancia, impuesto);
-		String valorEsperado = "ganancia: 10000.0, impuesto: 55.0";
+		String valorEsperado = "ganancia: 10000, impuesto: 55";
 		
 		String valorObtenido = salida.generarSalida();
 		
